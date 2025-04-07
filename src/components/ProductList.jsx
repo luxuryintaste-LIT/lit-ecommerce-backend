@@ -37,13 +37,18 @@ const ProductList = () => {
   ];
 
   return (
-    <div className="product-list-container">
-      <div className="product-grid">
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+    <section className="products-section">
+      <div className="glass-container">
+        <h2 className="section-title">Fresh Arrivals</h2>
+        <div className="product-list-container">
+          <div className="product-grid">
+            {products.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

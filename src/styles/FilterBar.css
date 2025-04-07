@@ -8,14 +8,9 @@
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 1rem 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  padding: 0 1rem;
 }
 
 .select-wrapper {
@@ -73,8 +68,9 @@
   }
 
   .filter-container {
-    padding: 0.75rem;
+    padding: 0 0.5rem;
     flex-direction: column;
+    gap: 0.75rem;
   }
 
   .select-wrapper {
@@ -90,7 +86,7 @@
   }
 
   .filter-container {
-    padding: 0.5rem;
+    padding: 0;
     gap: 0.5rem;
   }
 } 

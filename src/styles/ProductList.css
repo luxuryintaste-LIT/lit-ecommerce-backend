@@ -1,6 +1,18 @@
 .products-section {
   width: 100%;
   padding: 0 2rem 2rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .glass-container {
@@ -12,6 +24,12 @@
   padding: 1.5rem;
   margin: 0 auto;
   max-width: 1400px;
+  transition: all 0.4s ease;
+}
+
+.glass-container:hover {
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .section-title {
@@ -24,6 +42,18 @@
   letter-spacing: 1px;
   position: relative;
   padding-bottom: 0.75rem;
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .section-title::after {
@@ -31,11 +61,18 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleX(0);
   width: 100px;
   height: 3px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
   border-radius: 3px;
+  animation: expandWidth 0.6s ease-out 0.3s forwards;
+}
+
+@keyframes expandWidth {
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
 }
 
 /* Filters Container Styles */
@@ -126,6 +163,30 @@
   gap: 1.5rem;
   padding: 0.5rem 0;
 }
+
+.product-grid > * {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animate each product card with a delay */
+.product-grid > *:nth-child(1) { animation-delay: 0.1s; }
+.product-grid > *:nth-child(2) { animation-delay: 0.2s; }
+.product-grid > *:nth-child(3) { animation-delay: 0.3s; }
+.product-grid > *:nth-child(4) { animation-delay: 0.4s; }
+.product-grid > *:nth-child(5) { animation-delay: 0.5s; }
+.product-grid > *:nth-child(6) { animation-delay: 0.6s; }
 
 /* Tablet and smaller desktop screens */
 @media (max-width: 1024px) {

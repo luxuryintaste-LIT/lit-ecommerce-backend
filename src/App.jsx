@@ -5,6 +5,7 @@ import CategoryCards from './components/CategoryCards';
 import SearchBar from './components/SearchBar';
 import FilterBar from './components/FilterBar';
 import ProductList from './components/ProductList';
+import bodyBg from './img/body-bg.png';
 import './App.css';
 
 function App() {

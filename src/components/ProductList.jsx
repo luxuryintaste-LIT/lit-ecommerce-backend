@@ -1,0 +1,50 @@
+import React from 'react';
+import ProductCard from './ProductCard';
+import menWomenImage from '../img/men.png';  // Import the image directly
+import '../styles/ProductList.css';
+
+const ProductList = () => {
+  // Sample product data - replace with your actual data
+  const products = [
+    {
+      id: 1,
+      brand: 'H&M',
+      name: 'Regular Fit Cashmere jumper',
+      price: 3199,
+      originalPrice: 7999,
+      discount: 60,
+      image: menWomenImage  // Use the imported image
+    },
+    {
+      id: 2,
+      brand: 'H&M',
+      name: 'Regular Fit Cashmere jumper',
+      price: 3199,
+      originalPrice: 7999,
+      discount: 60,
+      image: menWomenImage  // Use the imported image
+    },
+    {
+      id: 3,
+      brand: 'H&M',
+      name: 'Regular Fit Cashmere jumper',
+      price: 3199,
+      originalPrice: 7999,
+      discount: 60,
+      image: menWomenImage  // Use the imported image
+    },
+    // Add more products as needed
+  ];
+
+  return (
+    <div className="product-list-container">
+      <div className="product-grid">
+        {products.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ProductList; 

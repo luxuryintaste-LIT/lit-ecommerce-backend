@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../styles/FilterBar.css';
 
 const FilterBar = () => {
+  const filterRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          filterRef.current.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    if (filterRef.current) {
+      observer.observe(filterRef.current);
+    }
+
+    return () => {
+      if (filterRef.current) {
+        observer.unobserve(filterRef.current);
+      }
+    };
+  }, []);
+
   const categories = [
     { id: 'all', name: 'All Products' },
     { id: 'men', name: 'Men' },
@@ -18,7 +44,7 @@ const FilterBar = () => {
   ];
 
   return (
-    <div className="filter-bar">
+    <div className="filter-bar" ref={filterRef}>
       <div className="filter-container">
         <div className="select-wrapper">
           <select className="filter-select">

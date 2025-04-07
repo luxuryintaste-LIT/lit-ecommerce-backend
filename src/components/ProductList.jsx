@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ProductCard from './ProductCard';
 import menWomenImage from '../img/men.png';  // Import the image directly
 import '../styles/ProductList.css';
 
 const ProductList = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          sectionRef.current.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const products = [
     {
       id: 1,
@@ -36,7 +62,7 @@ const ProductList = () => {
   ];
 
   return (
-    <section className="products-section">
+    <section className="products-section" ref={sectionRef}>
       <div className="glass-container">
         <h2 className="section-title">Fresh Arrivals</h2>
         <div className="product-list-container">

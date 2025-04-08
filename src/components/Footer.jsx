@@ -9,8 +9,31 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-left">
-          <div className="logo-nav-wrapper">
-            <img src={logo} alt="LuxuryInTaste Logo" className="footer-logo" />
+          <div className="footer-main">
+            <div className="footer-logo-section">
+              <img src={logo} alt="LuxuryInTaste Logo" className="footer-logo" />
+            </div>
+            
+            <div className="footer-middle">
+              <nav className="footer-nav">
+                <a href="/" className="footer-link">Home</a>
+                <a href="/about" className="footer-link">About</a>
+                <a href="/privacy" className="footer-link">Privacy Policy</a>
+                <a href="/terms" className="footer-link">Terms of Services</a>
+              </nav>
+              <div className="footer-subscribe">
+                <h3>Join our Community</h3>
+                <div className="subscribe-form">
+                  <input 
+                    type="email" 
+                    placeholder="Enter Your Email" 
+                    className="subscribe-input"
+                  />
+                  <button className="subscribe-button">Subscribe</button>
+                </div>
+              </div>
+            </div>
+
             <div className="contact-section">
               <h3>Contact Us</h3>
               <div className="social-links">
@@ -31,23 +54,6 @@ const Footer = () => {
                   <span>Twitter</span>
                 </a>
               </div>
-            </div>
-          </div>
-          <nav className="footer-nav">
-            <a href="/" className="footer-link">Home</a>
-            <a href="/about" className="footer-link">About</a>
-            <a href="/privacy" className="footer-link">Privacy Policy</a>
-            <a href="/terms" className="footer-link">Terms of Services</a>
-          </nav>
-          <div className="footer-subscribe">
-            <h3>Join our Community</h3>
-            <div className="subscribe-form">
-              <input 
-                type="email" 
-                placeholder="Enter Your Email" 
-                className="subscribe-input"
-              />
-              <button className="subscribe-button">Subscribe</button>
             </div>
           </div>
         </div>

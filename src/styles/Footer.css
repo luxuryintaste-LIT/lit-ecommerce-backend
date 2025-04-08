@@ -15,13 +15,16 @@
 .footer-main {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   gap: 3rem;
 }
 
 .footer-logo-section {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .footer-logo {
@@ -35,6 +38,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  padding: 0.5rem 0;
 }
 
 .footer-nav {
@@ -167,6 +171,8 @@
   flex-direction: column;
   gap: 0.75rem;
   align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .store-badge {
@@ -230,6 +236,10 @@
     gap: 2rem;
   }
 
+  .footer-logo-section {
+    height: auto;
+  }
+
   .footer-middle {
     width: 100%;
     order: 2;
@@ -280,8 +290,7 @@
   }
 
   .app-downloads {
-    order: 3;
-    width: 100%;
-    align-items: center;
+    height: auto;
+    padding: 0.5rem 0;
   }
 } 

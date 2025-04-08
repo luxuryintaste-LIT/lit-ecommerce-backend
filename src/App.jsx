@@ -13,8 +13,8 @@ function App() {
     <Router>
       <div className="app">
         <Navbar />
-        <CategoryCards />
         <SearchBar />
+        <CategoryCards />
         <FilterBar />
         <ProductList />
       </div>

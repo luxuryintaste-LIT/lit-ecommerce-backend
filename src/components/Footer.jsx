@@ -17,19 +17,6 @@ const Footer = () => {
               <a href="/privacy" className="footer-link">Privacy Policy</a>
               <a href="/terms" className="footer-link">Terms of Services</a>
             </nav>
-          </div>
-          <div className="main-content-wrapper">
-            <div className="footer-subscribe">
-              <h3>Join our Community</h3>
-              <div className="subscribe-form">
-                <input 
-                  type="email" 
-                  placeholder="Enter Your Email" 
-                  className="subscribe-input"
-                />
-                <button className="subscribe-button">Subscribe</button>
-              </div>
-            </div>
             <div className="contact-section">
               <h3>Contact Us</h3>
               <div className="social-links">
@@ -50,6 +37,17 @@ const Footer = () => {
                   <span>Twitter</span>
                 </a>
               </div>
+            </div>
+          </div>
+          <div className="footer-subscribe">
+            <h3>Join our Community</h3>
+            <div className="subscribe-form">
+              <input 
+                type="email" 
+                placeholder="Enter Your Email" 
+                className="subscribe-input"
+              />
+              <button className="subscribe-button">Subscribe</button>
             </div>
           </div>
         </div>

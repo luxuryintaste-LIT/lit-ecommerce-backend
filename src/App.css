@@ -25,7 +25,7 @@ body {
   color: var(--text-color);
   min-height: 100vh;
   position: relative;
-  background: rgba(211, 211, 211 , 0.5);  /* lightgray with 50% opacity */
+  background: rgba(0, 0, 0, 0.5);  /* black with 50% opacity */
   color-scheme: dark; /* Force dark mode */
 }
 

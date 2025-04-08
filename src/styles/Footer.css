@@ -27,6 +27,7 @@
 .logo-nav-wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 3rem;
   width: 100%;
   margin-bottom: 1.5rem;
@@ -44,9 +45,9 @@
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
-  flex: 1;
   justify-content: center;
-  margin-left: -80px;
+  width: 100%;
+  margin-bottom: 1.5rem;
   border: none;
 }
 
@@ -245,7 +246,7 @@
 
   .footer-nav {
     justify-content: center;
-    margin-left: 0;
+    gap: 1rem;
   }
 
   .contact-section {

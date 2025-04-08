@@ -11,12 +11,6 @@ const Footer = () => {
         <div className="footer-left">
           <div className="logo-nav-wrapper">
             <img src={logo} alt="LuxuryInTaste Logo" className="footer-logo" />
-            <nav className="footer-nav">
-              <a href="/" className="footer-link">Home</a>
-              <a href="/about" className="footer-link">About</a>
-              <a href="/privacy" className="footer-link">Privacy Policy</a>
-              <a href="/terms" className="footer-link">Terms of Services</a>
-            </nav>
             <div className="contact-section">
               <h3>Contact Us</h3>
               <div className="social-links">
@@ -39,6 +33,12 @@ const Footer = () => {
               </div>
             </div>
           </div>
+          <nav className="footer-nav">
+            <a href="/" className="footer-link">Home</a>
+            <a href="/about" className="footer-link">About</a>
+            <a href="/privacy" className="footer-link">Privacy Policy</a>
+            <a href="/terms" className="footer-link">Terms of Services</a>
+          </nav>
           <div className="footer-subscribe">
             <h3>Join our Community</h3>
             <div className="subscribe-form">

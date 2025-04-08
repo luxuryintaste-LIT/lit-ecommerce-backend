@@ -8,57 +8,53 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-left">
-          <div className="footer-main">
-            <div className="footer-logo-section">
-              <img src={logo} alt="LuxuryInTaste Logo" className="footer-logo" />
-            </div>
-            
-            <div className="footer-middle">
-              <nav className="footer-nav">
-                <a href="/" className="footer-link">Home</a>
-                <a href="/about" className="footer-link">About</a>
-                <a href="/privacy" className="footer-link">Privacy Policy</a>
-                <a href="/terms" className="footer-link">Terms of Services</a>
-              </nav>
-              <div className="footer-subscribe">
-                <h3>Join our Community</h3>
-                <div className="subscribe-form">
-                  <input 
-                    type="email" 
-                    placeholder="Enter Your Email" 
-                    className="subscribe-input"
-                  />
-                  <button className="subscribe-button">Subscribe</button>
-                </div>
-              </div>
-            </div>
-
-            <div className="contact-section">
-              <h3>Contact Us</h3>
-              <div className="social-links">
-                <a href="#" className="social-link">
-                  <i className="fas fa-envelope"></i>
-                  <span>Email</span>
-                </a>
-                <a href="#" className="social-link">
-                  <i className="fab fa-linkedin"></i>
-                  <span>LinkedIn</span>
-                </a>
-                <a href="#" className="social-link">
-                  <i className="fab fa-instagram"></i>
-                  <span>Instagram</span>
-                </a>
-                <a href="#" className="social-link">
-                  <i className="fab fa-twitter"></i>
-                  <span>Twitter</span>
-                </a>
+        <div className="footer-main">
+          <div className="footer-logo-section">
+            <img src={logo} alt="LuxuryInTaste Logo" className="footer-logo" />
+          </div>
+          
+          <div className="footer-middle">
+            <nav className="footer-nav">
+              <a href="/" className="footer-link">Home</a>
+              <a href="/about" className="footer-link">About</a>
+              <a href="/privacy" className="footer-link">Privacy Policy</a>
+              <a href="/terms" className="footer-link">Terms of Services</a>
+            </nav>
+            <div className="footer-subscribe">
+              <h3>Join our Community</h3>
+              <div className="subscribe-form">
+                <input 
+                  type="email" 
+                  placeholder="Enter Your Email" 
+                  className="subscribe-input"
+                />
+                <button className="subscribe-button">Subscribe</button>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="footer-right">
+          <div className="contact-section">
+            <h3>Contact Us</h3>
+            <div className="social-links">
+              <a href="#" className="social-link">
+                <i className="fas fa-envelope"></i>
+                <span>Email</span>
+              </a>
+              <a href="#" className="social-link">
+                <i className="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="#" className="social-link">
+                <i className="fab fa-instagram"></i>
+                <span>Instagram</span>
+              </a>
+              <a href="#" className="social-link">
+                <i className="fab fa-twitter"></i>
+                <span>Twitter</span>
+              </a>
+            </div>
+          </div>
+
           <div className="app-downloads">
             <a href="#" className="store-badge">
               <img src={googlePlay} alt="Google Play icon" className="store-icon" />

@@ -9,14 +9,16 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-left">
-          <img src={logo} alt="LuxuryInTaste Logo" className="footer-logo" />
-          <nav className="footer-nav">
-            <a href="/" className="footer-link">Home</a>
-            <a href="/about" className="footer-link">About</a>
-            <a href="/privacy" className="footer-link">Privacy Policy</a>
-            <a href="/terms" className="footer-link">Terms of Services</a>
-            <a href="/contact" className="footer-link">Contact Us</a>
-          </nav>
+          <div className="logo-nav-wrapper">
+            <img src={logo} alt="LuxuryInTaste Logo" className="footer-logo" />
+            <nav className="footer-nav">
+              <a href="/" className="footer-link">Home</a>
+              <a href="/about" className="footer-link">About</a>
+              <a href="/privacy" className="footer-link">Privacy Policy</a>
+              <a href="/terms" className="footer-link">Terms of Services</a>
+              <a href="/contact" className="footer-link">Contact Us</a>
+            </nav>
+          </div>
           <div className="footer-subscribe">
             <h3>Join our Community</h3>
             <div className="subscribe-form">

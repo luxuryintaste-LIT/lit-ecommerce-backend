@@ -18,25 +18,27 @@
 .footer-left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 2rem;
+  max-width: 800px;
+}
+
+.logo-nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
 }
 
 .footer-logo {
   width: 80px;
   height: auto;
-}
-
-/* Add a wrapper for logo and nav */
-.logo-nav-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
+  flex-shrink: 0;
 }
 
 .footer-nav {
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .footer-link {
@@ -44,6 +46,7 @@
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .footer-link:hover {
@@ -51,7 +54,6 @@
 }
 
 .footer-subscribe {
-  margin-top: 1rem;
   width: 100%;
 }
 
@@ -158,6 +160,7 @@
 
   .footer-left {
     align-items: center;
+    max-width: 100%;
   }
 
   .logo-nav-wrapper {
@@ -166,7 +169,6 @@
   }
 
   .footer-nav {
-    flex-wrap: wrap;
     justify-content: center;
   }
 

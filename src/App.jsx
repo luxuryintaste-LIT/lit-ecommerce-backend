@@ -5,6 +5,7 @@ import CategoryCards from './components/CategoryCards';
 import SearchBar from './components/SearchBar';
 import FilterBar from './components/FilterBar';
 import ProductList from './components/ProductList';
+import Footer from './components/Footer';
 import bodyBg from './img/body-bg.png';
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
         <CategoryCards />
         <FilterBar />
         <ProductList />
+        <Footer />
       </div>
     </Router>
   );

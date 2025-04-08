@@ -16,7 +16,6 @@ const Footer = () => {
               <a href="/about" className="footer-link">About</a>
               <a href="/privacy" className="footer-link">Privacy Policy</a>
               <a href="/terms" className="footer-link">Terms of Services</a>
-              <a href="/contact" className="footer-link">Contact Us</a>
             </nav>
           </div>
           <div className="footer-subscribe">
@@ -33,19 +32,26 @@ const Footer = () => {
         </div>
 
         <div className="footer-right">
-          <div className="social-links">
-            <a href="#" className="social-link">
-              <i className="fas fa-envelope"></i>
-            </a>
-            <a href="#" className="social-link">
-              <i className="fab fa-linkedin"></i>
-            </a>
-            <a href="#" className="social-link">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="#" className="social-link">
-              <i className="fab fa-twitter"></i>
-            </a>
+          <div className="contact-section">
+            <h3>Contact Us</h3>
+            <div className="social-links">
+              <a href="#" className="social-link">
+                <i className="fas fa-envelope"></i>
+                <span>Email</span>
+              </a>
+              <a href="#" className="social-link">
+                <i className="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="#" className="social-link">
+                <i className="fab fa-instagram"></i>
+                <span>Instagram</span>
+              </a>
+              <a href="#" className="social-link">
+                <i className="fab fa-twitter"></i>
+                <span>Twitter</span>
+              </a>
+            </div>
           </div>
           <div className="app-downloads">
             <img src={googlePlay} alt="Get it on Google Play" className="store-badge" />

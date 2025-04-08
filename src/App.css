@@ -19,7 +19,8 @@ body {
   color: var(--text-color);
   min-height: 100vh;
   position: relative;
-  background-color: #000000; /* Black background */
+  background: linear-gradient(135deg, #000000, #1a001f, #2e003b, #4b0066, #6a1b9a);
+
 }
 
 /* Pattern overlay */

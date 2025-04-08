@@ -17,9 +17,6 @@ const Footer = () => {
             <a href="/terms" className="footer-link">Terms of Services</a>
             <a href="/contact" className="footer-link">Contact Us</a>
           </nav>
-        </div>
-
-        <div className="footer-middle">
           <div className="footer-subscribe">
             <h3>Join our Community</h3>
             <div className="subscribe-form">

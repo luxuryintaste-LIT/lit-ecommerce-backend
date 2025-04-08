@@ -17,8 +17,9 @@
 
 .footer-left {
   display: flex;
-  align-items: center;
-  gap: 3rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 .footer-logo {
@@ -42,8 +43,8 @@
   color: #fff;
 }
 
-.footer-middle {
-  flex: 0 1 auto;
+.footer-subscribe {
+  margin-top: 1rem;
 }
 
 .footer-subscribe h3 {
@@ -148,8 +149,7 @@
   }
 
   .footer-left {
-    flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
   }
 
   .footer-nav {
@@ -157,13 +157,17 @@
     justify-content: center;
   }
 
-  .footer-middle {
+  .footer-subscribe {
     width: 100%;
     max-width: 400px;
   }
 
   .subscribe-form {
     justify-content: center;
+  }
+
+  .subscribe-input {
+    width: 100%;
   }
 
   .footer-right {

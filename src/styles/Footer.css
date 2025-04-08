@@ -2,7 +2,7 @@
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
-  padding: 3rem 0;
+  padding: 2rem 0;
   color: #fff;
 }
 
@@ -10,32 +10,31 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  display: grid;
-  grid-template-columns: 2fr 1.5fr 1.5fr;
-  gap: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .footer-left {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  align-items: center;
+  gap: 3rem;
 }
 
 .footer-logo {
-  width: 120px;
+  width: 80px;
   height: auto;
 }
 
-.footer-links {
+.footer-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .footer-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: color 0.3s ease;
 }
 
@@ -44,25 +43,24 @@
 }
 
 .footer-middle {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex: 0 1 auto;
 }
 
 .footer-subscribe h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
   font-weight: 500;
+  color: #fff;
 }
 
 .subscribe-form {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .subscribe-input {
-  flex: 1;
-  padding: 0.75rem 1rem;
+  width: 240px;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.1);
@@ -75,13 +73,14 @@
 }
 
 .subscribe-button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border: none;
   border-radius: 4px;
   background: #6B21A8;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .subscribe-button:hover {
@@ -91,48 +90,33 @@
 .footer-right {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .social-links {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
+  justify-content: flex-end;
 }
 
 .social-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
 }
 
 .social-link:hover {
-  transform: translateX(10px);
-}
-
-.social-link span {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
-}
-
-.social-link i {
   color: #fff;
-  font-size: 1.2rem;
 }
 
 .app-downloads {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
+  justify-content: flex-end;
 }
 
 .store-badge {
-  height: 40px;
+  height: 32px;
   width: auto;
   cursor: pointer;
   transition: opacity 0.3s ease;
@@ -144,36 +128,53 @@
 
 .footer-bottom {
   max-width: 1200px;
-  margin: 3rem auto 0;
-  padding: 2rem 2rem 0;
+  margin: 2rem auto 0;
+  padding: 1rem 2rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
 .footer-bottom p {
   color: rgba(255, 255, 255, 0.5);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 @media (max-width: 1024px) {
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .footer-left, .footer-middle, .footer-right {
+    flex-direction: column;
     align-items: center;
+    gap: 2rem;
     text-align: center;
   }
 
-  .social-links {
+  .footer-left {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-middle {
     width: 100%;
     max-width: 400px;
   }
 
-  .app-downloads {
-    flex-direction: row;
+  .subscribe-form {
     justify-content: center;
-    gap: 2rem;
+  }
+
+  .footer-right {
+    align-items: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .app-downloads {
+    justify-content: center;
   }
 } 

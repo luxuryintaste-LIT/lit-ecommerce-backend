@@ -10,13 +10,13 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-left">
           <img src={logo} alt="LuxuryInTaste Logo" className="footer-logo" />
-          <div className="footer-links">
+          <nav className="footer-nav">
             <a href="/" className="footer-link">Home</a>
             <a href="/about" className="footer-link">About</a>
             <a href="/privacy" className="footer-link">Privacy Policy</a>
             <a href="/terms" className="footer-link">Terms of Services</a>
             <a href="/contact" className="footer-link">Contact Us</a>
-          </div>
+          </nav>
         </div>
 
         <div className="footer-middle">
@@ -35,22 +35,18 @@ const Footer = () => {
 
         <div className="footer-right">
           <div className="social-links">
-            <div className="social-link">
-              <span>Email</span>
+            <a href="#" className="social-link">
               <i className="fas fa-envelope"></i>
-            </div>
-            <div className="social-link">
-              <span>Linkedin</span>
+            </a>
+            <a href="#" className="social-link">
               <i className="fab fa-linkedin"></i>
-            </div>
-            <div className="social-link">
-              <span>Instagram</span>
+            </a>
+            <a href="#" className="social-link">
               <i className="fab fa-instagram"></i>
-            </div>
-            <div className="social-link">
-              <span>Twitter</span>
+            </a>
+            <a href="#" className="social-link">
               <i className="fab fa-twitter"></i>
-            </div>
+            </a>
           </div>
           <div className="app-downloads">
             <img src={googlePlay} alt="Get it on Google Play" className="store-badge" />

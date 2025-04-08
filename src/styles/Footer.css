@@ -27,6 +27,13 @@
   height: auto;
 }
 
+/* Add a wrapper for logo and nav */
+.logo-nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
 .footer-nav {
   display: flex;
   gap: 2rem;
@@ -45,6 +52,7 @@
 
 .footer-subscribe {
   margin-top: 1rem;
+  width: 100%;
 }
 
 .footer-subscribe h3 {
@@ -150,6 +158,11 @@
 
   .footer-left {
     align-items: center;
+  }
+
+  .logo-nav-wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .footer-nav {

@@ -23,6 +23,7 @@
   border-radius: 10px;
   overflow: hidden;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .search-box:focus-within {
@@ -37,10 +38,27 @@
   color: white;
   font-size: 1rem;
   outline: none;
+  width: 100%;
 }
 
 .search-input::placeholder {
+  color: transparent;
+}
+
+.search-box::before {
+  content: "";
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
   color: rgba(255, 255, 255, 0.7);
+  animation: placeholderAnimation 12s infinite;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.search-input:focus + .search-box::before {
+  display: none;
 }
 
 .search-button {
@@ -139,5 +157,36 @@
 
   .action-button {
     padding: 0.35rem;
+  }
+}
+
+@keyframes placeholderAnimation {
+  0%, 18% {
+    content: "Search for products...";
+    opacity: 1;
+  }
+  20%, 23% {
+    opacity: 0;
+  }
+  25%, 43% {
+    content: "Search for men's collection...";
+    opacity: 1;
+  }
+  45%, 48% {
+    opacity: 0;
+  }
+  50%, 68% {
+    content: "Search for women's collection...";
+    opacity: 1;
+  }
+  70%, 73% {
+    opacity: 0;
+  }
+  75%, 93% {
+    content: "Search for accessories...";
+    opacity: 1;
+  }
+  95%, 98% {
+    opacity: 0;
   }
 } 

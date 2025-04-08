@@ -27,6 +27,7 @@
   align-items: center;
   gap: 3rem;
   width: 100%;
+  justify-content: space-between;
 }
 
 .footer-logo {
@@ -39,6 +40,8 @@
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  flex: 1;
+  justify-content: center;
 }
 
 .footer-link {

@@ -54,8 +54,20 @@ const Footer = () => {
 
         <div className="footer-right">
           <div className="app-downloads">
-            <img src={googlePlay} alt="Get it on Google Play" className="store-badge" />
-            <img src={appStore} alt="Download on the App Store" className="store-badge" />
+            <a href="#" className="store-badge">
+              <img src={googlePlay} alt="Google Play icon" className="store-icon" />
+              <div className="store-text">
+                <span className="store-action">Get it on</span>
+                <span className="store-name">Google Play</span>
+              </div>
+            </a>
+            <a href="#" className="store-badge">
+              <img src={appStore} alt="App Store icon" className="store-icon" />
+              <div className="store-text">
+                <span className="store-action">Download on the</span>
+                <span className="store-name">App Store</span>
+              </div>
+            </a>
           </div>
         </div>
       </div>

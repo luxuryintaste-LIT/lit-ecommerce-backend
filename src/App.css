@@ -46,6 +46,24 @@ body::before {
   z-index: 0;
 }
 
+/* Ensure consistent styling for mobile devices */
+@media (max-width: 768px) {
+  body {
+    background: rgba(0, 0, 0, 0.5);  /* Maintain the same background opacity as desktop */
+  }
+  
+  body::before {
+    opacity: 0.8;  /* Maintain the same pattern opacity */
+    background-size: auto;  /* Ensure pattern size is consistent */
+  }
+}
+
+@media (max-width: 480px) {
+  body::before {
+    background-size: auto;  /* Keep background pattern size proportional */
+  }
+}
+
 .app {
   min-height: 100vh;
   display: flex;

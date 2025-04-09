@@ -52,9 +52,10 @@
   top: 50%;
   transform: translateY(-50%);
   color: rgba(255, 255, 255, 0.7);
-  animation: placeholderAnimation 12s infinite;
+  animation: typing 16s infinite;
   pointer-events: none;
   white-space: nowrap;
+  font-family: monospace;
 }
 
 .search-input:focus + .search-box::before {
@@ -105,15 +106,10 @@
   .search-wrapper {
     padding: 0.75rem 1rem;
     gap: 0.75rem;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
   }
 
   .search-box {
     min-width: 120px;
-    flex: 1;
-    flex-shrink: 1;
   }
 
   .search-input {
@@ -127,9 +123,6 @@
 
   .action-buttons-search {
     gap: 0.5rem;
-    display: flex;
-    flex-shrink: 0;
-    white-space: nowrap;
   }
 
   .action-button {
@@ -148,15 +141,10 @@
   .search-wrapper {
     padding: 0.5rem 0.75rem;
     gap: 0.5rem;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
   }
 
   .search-box {
     min-width: 100px;
-    flex: 1;
-    max-width: 70%;
   }
 
   .search-input {
@@ -168,50 +156,106 @@
     padding: 0.5rem 0.6rem;
   }
 
-  .action-buttons-search {
-    display: flex;
-    gap: 0.5rem;
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-
   .action-button {
     padding: 0.35rem;
   }
-  
-  .action-button svg {
-    width: 20px;
-    height: 20px;
-  }
 }
 
-@keyframes placeholderAnimation {
-  0%, 18% {
+@keyframes typing {
+  0%, 20% {
+    content: "S|";
+  }
+  2% {
+    content: "Se|";
+  }
+  4% {
+    content: "Sea|";
+  }
+  6% {
+    content: "Sear|";
+  }
+  8% {
+    content: "Searc|";
+  }
+  10% {
+    content: "Search|";
+  }
+  12% {
+    content: "Search f|";
+  }
+  14% {
+    content: "Search fo|";
+  }
+  16% {
+    content: "Search for|";
+  }
+  18% {
+    content: "Search for.|";
+  }
+  20% {
+    content: "Search for..|";
+  }
+  22% {
+    content: "Search for...|";
+  }
+  24%, 26% {
     content: "Search for products...";
-    opacity: 1;
   }
-  20%, 23% {
-    opacity: 0;
+  28%, 30% {
+    content: "Search for men|";
   }
-  25%, 43% {
-    content: "Search for men's collection...";
-    opacity: 1;
+  32% {
+    content: "Search for men's|";
   }
-  45%, 48% {
-    opacity: 0;
+  34% {
+    content: "Search for men's w|";
   }
-  50%, 68% {
-    content: "Search for women's collection...";
-    opacity: 1;
+  36% {
+    content: "Search for men's we|";
   }
-  70%, 73% {
-    opacity: 0;
+  38% {
+    content: "Search for men's wea|";
   }
-  75%, 93% {
-    content: "Search for accessories...";
-    opacity: 1;
+  40%, 45% {
+    content: "Search for men's wear...";
   }
-  95%, 98% {
-    opacity: 0;
+  48%, 50% {
+    content: "Search for women|";
+  }
+  52% {
+    content: "Search for women's|";
+  }
+  54% {
+    content: "Search for women's f|";
+  }
+  56% {
+    content: "Search for women's fa|";
+  }
+  58% {
+    content: "Search for women's fas|";
+  }
+  60%, 65% {
+    content: "Search for women's fashion...";
+  }
+  68% {
+    content: "Search for luxury|";
+  }
+  70% {
+    content: "Search for luxury b|";
+  }
+  72% {
+    content: "Search for luxury br|";
+  }
+  74% {
+    content: "Search for luxury bra|";
+  }
+  76% {
+    content: "Search for luxury bran|";
+  }
+  78% {
+    content: "Search for luxury brand|";
+  }
+  80%, 95% {
+    content: "Search for luxury brands...";
   }
 } 

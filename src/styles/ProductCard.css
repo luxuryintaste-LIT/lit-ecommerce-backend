@@ -145,4 +145,30 @@
     padding: 0.5rem;
     font-size: 0.85rem;
   }
+  
+  .buy-now {
+    background: radial-gradient(309.68% 308.36% at 53.98% 55.95%, rgba(0, 0, 0, 0.80) 0%, rgba(147, 51, 234, 0.40) 50%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  
+  .add-to-cart {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    border-radius: 16px;
+  }
+  
+  .product-image-container {
+    border-radius: 16px;
+  }
+  
+  .buy-now,
+  .add-to-cart {
+    padding: 0.45rem;
+    font-size: 0.8rem;
+  }
 } 

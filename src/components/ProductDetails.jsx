@@ -1,41 +1,11 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/ProductDetails.css';
 
-const ProductDetails = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
+const ProductDetails = ({ product, onClose }) => {
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-
-  // Mock product data - in a real app, this would come from an API or state management
-  const product = {
-    id: id || 1,
-    brand: 'H&M',
-    name: 'Regular Fit Cashmere jumper',
-    price: 3199,
-    originalPrice: 7999,
-    discount: 60,
-    description: 'A luxurious cashmere jumper with a regular fit. Made from 100% pure cashmere, this jumper offers exceptional softness and warmth. Perfect for both casual and formal occasions.',
-    details: [
-      '100% pure cashmere',
-      'Regular fit',
-      'Ribbed cuffs and hem',
-      'Machine washable',
-      'Available in multiple colors'
-    ],
-    colors: ['Black', 'Navy', 'Beige', 'Gray'],
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    images: [
-      '/src/img/men.png',
-      '/src/img/men.png',
-      '/src/img/men.png',
-      '/src/img/men.png'
-    ],
-    inStock: true
-  };
 
   const handleColorSelect = (color) => {
     setSelectedColor(color);
@@ -67,14 +37,10 @@ const ProductDetails = () => {
     alert(`Buying now: ${product.name} - ${selectedColor} - ${selectedSize} - Quantity: ${quantity}`);
   };
 
-  const handleClose = () => {
-    navigate(-1);
-  };
-
   return (
     <div className="product-details-container">
       <div className="product-details-content">
-        <button className="close-button" onClick={handleClose}>
+        <button className="close-button" onClick={onClose}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -86,13 +52,13 @@ const ProductDetails = () => {
           <div className="product-images-section">
             <div className="main-image-container">
               <img 
-                src={product.images[activeImageIndex]} 
+                src={product.image} 
                 alt={product.name} 
                 className="main-product-image"
               />
             </div>
             <div className="thumbnail-container">
-              {product.images.map((image, index) => (
+              {[product.image, product.image, product.image, product.image].map((image, index) => (
                 <div 
                   key={index} 
                   className={`thumbnail ${activeImageIndex === index ? 'active' : ''}`}

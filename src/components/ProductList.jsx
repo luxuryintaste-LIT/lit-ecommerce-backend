@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ProductCard from './ProductCard';
+import ProductDetails from './ProductDetails';
 import menWomenImage from '../img/men.png';  // Import the image directly
 import '../styles/ProductList.css';
 
 const ProductList = () => {
   const sectionRef = useRef(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,7 +40,17 @@ const ProductList = () => {
       price: 3199,
       originalPrice: 7999,
       discount: 60,
-      image: menWomenImage  // Use the imported image
+      image: menWomenImage,
+      description: 'A luxurious cashmere jumper with a regular fit. Made from 100% pure cashmere, this jumper offers exceptional softness and warmth.',
+      colors: ['Black', 'Navy', 'Beige', 'Gray'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      details: [
+        '100% pure cashmere',
+        'Regular fit',
+        'Ribbed cuffs and hem',
+        'Machine washable',
+        'Available in multiple colors'
+      ]
     },
     {
       id: 2,
@@ -47,7 +59,17 @@ const ProductList = () => {
       price: 3199,
       originalPrice: 7999,
       discount: 60,
-      image: menWomenImage  // Use the imported image
+      image: menWomenImage,
+      description: 'A luxurious cashmere jumper with a regular fit. Made from 100% pure cashmere, this jumper offers exceptional softness and warmth.',
+      colors: ['Black', 'Navy', 'Beige', 'Gray'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      details: [
+        '100% pure cashmere',
+        'Regular fit',
+        'Ribbed cuffs and hem',
+        'Machine washable',
+        'Available in multiple colors'
+      ]
     },
     {
       id: 3,
@@ -56,10 +78,28 @@ const ProductList = () => {
       price: 3199,
       originalPrice: 7999,
       discount: 60,
-      image: menWomenImage  // Use the imported image
+      image: menWomenImage,
+      description: 'A luxurious cashmere jumper with a regular fit. Made from 100% pure cashmere, this jumper offers exceptional softness and warmth.',
+      colors: ['Black', 'Navy', 'Beige', 'Gray'],
+      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+      details: [
+        '100% pure cashmere',
+        'Regular fit',
+        'Ribbed cuffs and hem',
+        'Machine washable',
+        'Available in multiple colors'
+      ]
     },
     // Add more products as needed
   ];
+
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+  };
+
+  const handleCloseProductDetails = () => {
+    setSelectedProduct(null);
+  };
 
   return (
     <section className="products-section" ref={sectionRef}>
@@ -68,11 +108,21 @@ const ProductList = () => {
         <div className="product-list-container">
           <div className="product-grid">
             {products.map(product => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+                onProductClick={handleProductClick}
+              />
             ))}
           </div>
         </div>
       </div>
+      {selectedProduct && (
+        <ProductDetails 
+          product={selectedProduct} 
+          onClose={handleCloseProductDetails}
+        />
+      )}
     </section>
   );
 };

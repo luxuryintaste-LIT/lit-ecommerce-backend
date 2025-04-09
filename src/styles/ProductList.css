@@ -217,9 +217,9 @@
   .glass-container {
     margin: 0;
     padding: 1rem 0.75rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .section-title {
@@ -229,22 +229,22 @@
 
   .filters-container {
     padding: 0.75rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: none;
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .category-btn {
     padding: 0.4rem 1rem;
     font-size: 0.85rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .sort-select {
     width: 100%;
     min-width: unset;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 

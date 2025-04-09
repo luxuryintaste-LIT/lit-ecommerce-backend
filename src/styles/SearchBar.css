@@ -58,8 +58,14 @@
   font-family: monospace;
 }
 
-.search-input:focus + .search-box::before {
+/* Hide the animation when input is focused or has text */
+.search-box.has-text::before {
   display: none;
+  animation: none;
+}
+
+.search-input:focus {
+  z-index: 1;
 }
 
 .search-button {

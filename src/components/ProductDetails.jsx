@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/ProductDetails.css';
 
 const ProductDetails = ({ product, onClose }) => {
@@ -6,6 +6,14 @@ const ProductDetails = ({ product, onClose }) => {
   const [selectedSize, setSelectedSize] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   const handleColorSelect = (color) => {
     setSelectedColor(color);
@@ -37,10 +45,27 @@ const ProductDetails = ({ product, onClose }) => {
     alert(`Buying now: ${product.name} - ${selectedColor} - ${selectedSize} - Quantity: ${quantity}`);
   };
 
+  const handleClose = (e) => {
+    if (e) e.stopPropagation();
+    onClose();
+  };
+
+  // Close on escape key
+  useEffect(() => {
+    const handleEscKey = (e) => {
+      if (e.key === 'Escape') {
+        handleClose();
+      }
+    };
+    
+    window.addEventListener('keydown', handleEscKey);
+    return () => window.removeEventListener('keydown', handleEscKey);
+  }, []);
+
   return (
-    <div className="product-details-container">
-      <div className="product-details-content">
-        <button className="close-button" onClick={onClose}>
+    <div className="product-details-container" onClick={handleClose}>
+      <div className="product-details-content" onClick={(e) => e.stopPropagation()}>
+        <button className="close-button" onClick={handleClose} aria-label="Close">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>

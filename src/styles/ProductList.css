@@ -217,7 +217,6 @@
   .glass-container {
     margin: 0;
     padding: 1rem 0.75rem;
-    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: none;
     border: 1px solid rgba(255, 255, 255, 0.1);
   }

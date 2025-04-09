@@ -134,26 +134,30 @@
 }
 
 .card-content h2 {
-  font-size: 1.75rem;
   margin-bottom: 0.5rem;
-  font-weight: 600;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transform: translateY(20px);
+  font-size: 48px;
+  font-weight: 500;
+  font-family: 'Poppins';
+  color: #fff;
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 0.6s;
-  font-family: 'Poppins', sans-serif;
+
 }
 
 .card-content p {
   margin-bottom: 0.5rem;
-  font-size: 1rem;
+  font-size: 22px;
+  font-weight: 400;
+  font-family: Poppins;
+  color: #aeaeae;
   opacity: 0;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 0.8s;
-  font-family: 'Poppins', sans-serif;
 }
 
 /* Mobile Responsive Design */

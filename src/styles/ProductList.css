@@ -28,13 +28,14 @@
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: 600;
   margin-bottom: 1.5rem;
+  width: 324px;
+  position: relative;
+  font-size: 48px;
+  font-weight: 500;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   letter-spacing: 1px;
-  position: relative;
   padding-bottom: 0.75rem;
   opacity: 0;
   transform: translateY(-20px);

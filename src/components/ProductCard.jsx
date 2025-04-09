@@ -1,10 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/ProductCard.css';
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
+  const handleBuyNowClick = (e) => {
+    e.stopPropagation();
+    navigate(`/product/${product.id}`);
+  };
+
   return (
-    <div className="product-card">
+    <div className="product-card" onClick={handleCardClick}>
       <div className="product-image-container">
         <img src={product.image} alt={product.name} className="product-image" />
         <button className="wishlist-button">
@@ -26,7 +37,7 @@ const ProductCard = ({ product }) => {
           )}
         </div>
         <div className="button-container">
-          <button className="buy-now">Buy Now</button>
+          <button className="buy-now" onClick={handleBuyNowClick}>Buy Now</button>
           <button className="add-to-cart">Add to Cart</button>
         </div>
       </div>

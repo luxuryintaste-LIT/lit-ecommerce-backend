@@ -1,27 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import CategoryCards from './components/CategoryCards';
-import SearchBar from './components/SearchBar';
-import FilterBar from './components/FilterBar';
-import ProductList from './components/ProductList';
 import Footer from './components/Footer';
-import bodyBg from './img/body-bg.png';
-import './App.css';
+import Home from './pages/Home';
+import './styles/App.css';
 
 function App() {
   return (
     <Router>
       <div className="app">
         <Navbar />
-        <SearchBar />
-        <CategoryCards />
-        <FilterBar />
-        <ProductList />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
         <Footer />
       </div>
     </Router>
   );
-} 
+}
 
 export default App;

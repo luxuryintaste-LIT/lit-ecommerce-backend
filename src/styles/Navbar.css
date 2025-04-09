@@ -293,6 +293,12 @@
     width: auto;
   }
   
+  .navbar-right {
+    position: absolute;
+    right: 1rem;
+    width: auto;
+  }
+  
   .mobile-menu-btn {
     display: block;
     position: absolute;

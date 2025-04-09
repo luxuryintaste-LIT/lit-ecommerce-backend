@@ -51,6 +51,7 @@
   position: relative;
   padding: 0.2rem 0;
   white-space: nowrap;
+  font-family: 'Poppins', sans-serif;
 }
 
 .nav-link::before {

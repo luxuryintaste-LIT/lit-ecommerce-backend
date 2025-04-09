@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="product-info">
         <div className="brand-name">{product.brand}</div>
-        <h3 className="product-name">{product.name}</h3>
+        <h3 className="product-name-card">{product.name}</h3>
         <div className="price-container">
           <div className="current-price">Rs. {product.price.toLocaleString()}</div>
           {product.originalPrice && (

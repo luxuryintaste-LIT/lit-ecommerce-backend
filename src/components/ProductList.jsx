@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ProductCard from './ProductCard';
-import ProductDetails from './ProductDetails';
 import menWomenImage from '../img/men.png';  // Import the image directly
 import '../styles/ProductList.css';
 
 const ProductList = () => {
   const sectionRef = useRef(null);
-  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -93,14 +91,6 @@ const ProductList = () => {
     // Add more products as needed
   ];
 
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
-  };
-
-  const handleCloseProductDetails = () => {
-    setSelectedProduct(null);
-  };
-
   return (
     <section className="products-section" ref={sectionRef}>
       <div className="glass-container">
@@ -110,19 +100,12 @@ const ProductList = () => {
             {products.map(product => (
               <ProductCard 
                 key={product.id} 
-                product={product} 
-                onProductClick={handleProductClick}
+                product={product}
               />
             ))}
           </div>
         </div>
       </div>
-      {selectedProduct && (
-        <ProductDetails 
-          product={selectedProduct} 
-          onClose={handleCloseProductDetails}
-        />
-      )}
     </section>
   );
 };

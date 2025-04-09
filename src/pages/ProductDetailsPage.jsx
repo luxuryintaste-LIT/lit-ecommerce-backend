@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import menWomenImage from '../img/men.png';  // Import the image directly
 import '../styles/ProductDetails.css';
 
 const ProductDetailsPage = () => {
@@ -18,7 +19,7 @@ const ProductDetailsPage = () => {
     price: 3199,
     originalPrice: 7999,
     discount: 60,
-    image: '/src/img/men.png',
+    image: menWomenImage,
     description: 'A luxurious cashmere jumper with a regular fit. Made from 100% pure cashmere, this jumper offers exceptional softness and warmth.',
     colors: ['Black', 'Navy', 'Beige', 'Gray'],
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],

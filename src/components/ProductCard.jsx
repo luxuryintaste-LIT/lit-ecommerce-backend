@@ -2,18 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/ProductCard.css';
 
-const ProductCard = ({ product, onProductClick }) => {
-  const handleCardClick = () => {
-    onProductClick(product);
-  };
-
-  const handleBuyNowClick = (e) => {
-    e.stopPropagation(); // Prevent card click event
-    onProductClick(product);
-  };
-
+const ProductCard = ({ product }) => {
   return (
-    <div className="product-card" onClick={handleCardClick}>
+    <Link to={`/product/${product.id}`} className="product-card">
       <div className="product-image-container">
         <img src={product.image} alt={product.name} className="product-image" />
         <button className="wishlist-button">
@@ -35,11 +26,11 @@ const ProductCard = ({ product, onProductClick }) => {
           )}
         </div>
         <div className="button-container">
-          <button className="buy-now" onClick={handleBuyNowClick}>Buy Now</button>
+          <Link to={`/product/${product.id}`} className="buy-now">Buy Now</Link>
           <button className="add-to-cart">Add to Cart</button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

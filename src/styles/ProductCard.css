@@ -149,6 +149,9 @@
 
   .button-container {
     padding: 0 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .buy-now,
@@ -157,6 +160,7 @@
     border-radius: 50px;
     font-weight: 500;
     font-size: 0.9rem;
+    width: 100%;
   }
   
   .buy-now {
@@ -200,6 +204,10 @@
   
   .product-image-container {
     border-radius: 16px;
+  }
+  
+  .button-container {
+    gap: 0.4rem;
   }
   
   .buy-now,

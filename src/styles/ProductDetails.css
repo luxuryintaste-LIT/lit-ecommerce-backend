@@ -679,6 +679,10 @@
   background: transparent;
   border: 2px solid var(--accent);
   color: var(--accent);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+  
 }
 
 .add-to-cart-btn:hover {
@@ -689,6 +693,9 @@
 .buy-now-btn {
   background: var(--accent);
   color: white;
+  background: #4C1D95;
+  border: none;
+  text-decoration: none;
 }
 
 .buy-now-btn:hover {

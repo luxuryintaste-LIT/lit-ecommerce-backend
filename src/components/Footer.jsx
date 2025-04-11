@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           <div className="contact-section">
-            <h3>Contact Us</h3>
+            <h3 className="contact-heading">Contact Us</h3>
             <div className="social-links">
               <a href="#" className="social-link">
                 <i className="fas fa-envelope"></i>

@@ -383,7 +383,9 @@
     align-items: center;
     justify-content: center;
   }
-  
+  .contact-heading{
+    text-align: center;
+  }
   .social-links {
     align-items: flex-start;
     flex-direction: row;

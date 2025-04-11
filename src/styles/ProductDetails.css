@@ -434,21 +434,28 @@
 }
 
 .back-button {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: transparent;
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
-  color: var(--text);
+  color: white;
   cursor: pointer;
-  padding: 0.5rem;
+  z-index: 10000;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .back-button:hover {
+  background: linear-gradient(85.68deg, #9333ea, #fffefe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   transform: translateX(-5px);
 }
 

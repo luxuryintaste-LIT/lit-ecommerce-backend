@@ -357,11 +357,20 @@
   
   .contact-section {
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
   }
   
   .social-links {
-    align-items: center;
+    align-items: flex-start;
+  }
+
+  .footer-right {
+    width: 100%;
+    align-items: flex-end;
+  }
+
+  .app-downloads {
+    align-items: flex-end;
   }
 }
 

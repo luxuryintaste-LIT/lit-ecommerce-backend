@@ -33,43 +33,45 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="contact-section">
-            <h3>Contact Us</h3>
-            <div className="social-links">
-              <a href="#" className="social-link">
-                <i className="fas fa-envelope"></i>
-                <span>Email</span>
+          <div className="contact-downloads-container">
+            <div className="contact-section">
+              <h3>Contact Us</h3>
+              <div className="social-links">
+                <a href="#" className="social-link">
+                  <i className="fas fa-envelope"></i>
+                  <span>Email</span>
+                </a>
+                <a href="#" className="social-link">
+                  <i className="fab fa-linkedin"></i>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="#" className="social-link">
+                  <i className="fab fa-instagram"></i>
+                  <span>Instagram</span>
+                </a>
+                <a href="#" className="social-link">
+                  <i className="fab fa-twitter"></i>
+                  <span>Twitter</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="app-downloads">
+              <a href="#" className="store-badge">
+                <img src={googlePlay} alt="Google Play icon" className="store-icon" />
+                <div className="store-text">
+                  <span className="store-action">Get it on</span>
+                  <span className="store-name">Google Play</span>
+                </div>
               </a>
-              <a href="#" className="social-link">
-                <i className="fab fa-linkedin"></i>
-                <span>LinkedIn</span>
-              </a>
-              <a href="#" className="social-link">
-                <i className="fab fa-instagram"></i>
-                <span>Instagram</span>
-              </a>
-              <a href="#" className="social-link">
-                <i className="fab fa-twitter"></i>
-                <span>Twitter</span>
+              <a href="#" className="store-badge">
+                <img src={appStore} alt="App Store icon" className="store-icon" />
+                <div className="store-text">
+                  <span className="store-action">Download on the</span>
+                  <span className="store-name">App Store</span>
+                </div>
               </a>
             </div>
-          </div>
-
-          <div className="app-downloads">
-            <a href="#" className="store-badge">
-              <img src={googlePlay} alt="Google Play icon" className="store-icon" />
-              <div className="store-text">
-                <span className="store-action">Get it on</span>
-                <span className="store-name">Google Play</span>
-              </div>
-            </a>
-            <a href="#" className="store-badge">
-              <img src={appStore} alt="App Store icon" className="store-icon" />
-              <div className="store-text">
-                <span className="store-action">Download on the</span>
-                <span className="store-name">App Store</span>
-              </div>
-            </a>
           </div>
         </div>
       </div>

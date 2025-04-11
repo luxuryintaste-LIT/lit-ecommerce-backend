@@ -385,6 +385,7 @@
   }
   .contact-heading{
     text-align: center;
+    padding-left: 50%;
   }
   .social-links {
     align-items: flex-start;

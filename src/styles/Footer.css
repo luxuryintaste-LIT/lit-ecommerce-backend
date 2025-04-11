@@ -61,7 +61,9 @@
 }
 
 .footer-link:hover {
-  color: #fff;
+  background: linear-gradient(85.68deg, #9333ea, #fffefe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .contact-section {
@@ -106,7 +108,9 @@
 }
 
 .social-link:hover {
-  color: #fff;
+  background: linear-gradient(85.68deg, #9333ea, #fffefe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .footer-subscribe {

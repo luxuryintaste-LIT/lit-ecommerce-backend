@@ -68,13 +68,16 @@
 }
 
 .nav-link:hover {
-  opacity: 1;
+  background: linear-gradient(85.68deg, #9333ea, #fffefe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   transform: translateY(-2px);
 }
 
 .nav-link:hover::before {
   width: 100%;
   opacity: 1;
+  background: linear-gradient(85.68deg, #9333ea, #fffefe);
 }
 
 .nav-link.active {

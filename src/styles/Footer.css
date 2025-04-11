@@ -366,7 +366,10 @@
 
   .footer-right {
     width: 100%;
-    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
   .app-downloads {

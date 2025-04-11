@@ -66,8 +66,8 @@ const Footer = () => {
             <a href="#" className="store-badge">
               <img src={appStore} alt="App Store icon" className="store-icon" />
               <div className="store-text">
-                <span className="store-action">Get it on</span>
-                <span className="store-name">App Store</span>
+                <span className="store-action">Get it on </span>
+                <span className="store-name">App Store </span>
               </div>
             </a>
           </div>

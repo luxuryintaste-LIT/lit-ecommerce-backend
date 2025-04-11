@@ -378,7 +378,7 @@
   
   .contact-section h3 {
     margin-bottom: 1rem;
-    text-align: left;
+    text-align: center;
   }
   
   .social-links {
@@ -390,7 +390,7 @@
   .app-downloads {
     flex: 0 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     padding: 0;
     gap: 0.5rem;

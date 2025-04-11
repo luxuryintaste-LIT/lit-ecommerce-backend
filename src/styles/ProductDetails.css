@@ -134,7 +134,7 @@
 }
 
 .brand-name {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 500;
   font-family:'poppins',sans-serif;
   color: rgba(255, 255, 255, 0.7);
@@ -143,7 +143,7 @@
 }
 
 .product-name-card {
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 500;
   color: white;
   margin: 0;
@@ -159,7 +159,7 @@
 }
 
 .current-price {
-  font-size: 222px;
+  font-size: 19px;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   color: white;
@@ -168,7 +168,7 @@
 .original-price {
   text-decoration: line-through;
   color: rgba(255, 255, 255, 0.5);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
 }
 
@@ -178,7 +178,7 @@
   -webkit-text-fill-color: transparent;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
 }

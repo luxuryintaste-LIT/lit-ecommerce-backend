@@ -93,7 +93,7 @@ const ProductList = () => {
 
   return (
     <section className="products-section" ref={sectionRef}>
-      <div className="glass-container">
+      <div>
         <h2 className="section-title ">Fresh Arrivals</h2>
         <div className="product-list-container">
           <div className="product-grid">

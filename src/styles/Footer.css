@@ -379,6 +379,9 @@
   .contact-section h3 {
     margin-bottom: 1rem;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .social-links {

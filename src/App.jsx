@@ -7,23 +7,25 @@ import FilterBar from './components/FilterBar';
 import ProductList from './components/ProductList';
 import Footer from './components/Footer';
 import ProductDetailsPage from './pages/ProductDetailsPage';
-import LoginPage from './pages/LoginPage';
 import bodyBg from './img/body-bg.png';
 import './App.css';
 
 function App() {
   return (
     <Router>
-      <div className="app">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<ProductList />} />
-          <Route path="/product/:id" element={<ProductDetailsPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/" element={
+          <div className="app">
+            <Navbar />
+            <SearchBar />
+            <CategoryCards />
+            <FilterBar />
+            <ProductList />
+            <Footer />
+          </div>
+        } />
+        <Route path="/product/:productId" element={<ProductDetailsPage />} />
+      </Routes>
     </Router>
   );
 } 

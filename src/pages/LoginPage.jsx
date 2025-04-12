@@ -36,10 +36,10 @@ const LoginPage = () => {
       </button>
 
       <div className="login-container">
-        <h1 className="login-title">Welcome Back</h1>
-        <p className="login-subtitle">Sign in to continue shopping</p>
-
-        <form className="login-form" onSubmit={handleSubmit}>
+        <h1>Welcome Back</h1>
+        <p>Please enter your details to login</p>
+        
+        <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
@@ -52,7 +52,7 @@ const LoginPage = () => {
               required
             />
           </div>
-
+          
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
@@ -65,22 +65,10 @@ const LoginPage = () => {
               required
             />
           </div>
-
-          <div className="form-options">
-            <label className="remember-me">
-              <input type="checkbox" />
-              <span>Remember me</span>
-            </label>
-            <a href="#" className="forgot-password">Forgot Password?</a>
-          </div>
-
+          
           <button type="submit" className="login-button">
-            Sign In
+            Login
           </button>
-
-          <p className="signup-link">
-            Don't have an account? <a href="#">Sign up</a>
-          </p>
         </form>
       </div>
     </div>

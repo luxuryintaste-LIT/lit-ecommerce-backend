@@ -7,7 +7,6 @@ import FilterBar from './components/FilterBar';
 import ProductList from './components/ProductList';
 import Footer from './components/Footer';
 import ProductDetailsPage from './pages/ProductDetailsPage';
-import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import bodyBg from './img/body-bg.png';
 import './App.css';

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 import logo from '../img/logo.png';
 import googlePlay from '../img/google-play.png';
 import appStore from '../img/app-store.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -12,10 +12,10 @@ const Footer = () => {
         <div className="footer-main">
           <div className="footer-logo-section">
             <Link to="/login" className="footer-logo">
-              <img src={logo} alt="Luxury in Taste" />
+              <img src="/logo.png" alt="Luxury in Taste" />
             </Link>
             <p className="footer-description">
-              Your premium destination for luxury fashion and accessories.
+              Discover the epitome of luxury fashion with our curated collection of premium clothing and accessories.
             </p>
           </div>
           

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 import logo from '../img/logo.png';
 import googlePlay from '../img/google-play.png';
@@ -10,7 +11,12 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-main">
           <div className="footer-logo-section">
-            <img src={logo} alt="LuxuryInTaste Logo" className="footer-logo" />
+            <Link to="/login" className="footer-logo">
+              <img src={logo} alt="Luxury in Taste" />
+            </Link>
+            <p className="footer-description">
+              Your premium destination for luxury fashion and accessories.
+            </p>
           </div>
           
           <div className="footer-middle">

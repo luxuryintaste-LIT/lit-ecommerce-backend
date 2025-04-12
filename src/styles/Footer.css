@@ -187,6 +187,7 @@
 
 .store-badge {
   height: 48px;
+  width: 180px;
   padding: 8px 16px;
   background: white;
   border-radius: 50px;
@@ -202,23 +203,32 @@
 .store-icon {
   height: 24px;
   width: auto;
+  flex-shrink: 0;
 }
 
 .store-text {
   display: flex;
   flex-direction: column;
   gap: 0px;
+  flex: 1;
+  min-width: 0;
 }
 
 .store-action {
   font-size: 0.7rem;
   color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .store-name {
   font-size: 1.1rem;
   font-weight: 500;
   line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .store-badge:hover {

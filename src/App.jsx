@@ -13,8 +13,8 @@ import './App.css';
 
 // Protected route component
 const ProtectedRoute = ({ children }) => {
-  // Check if user is authenticated
-  const isAuthenticated = localStorage.getItem('adminAuthenticated') === 'true';
+  // Check if user is authenticated using sessionStorage
+  const isAuthenticated = sessionStorage.getItem('adminAuthenticated') === 'true';
   
   return isAuthenticated ? children : <Navigate to="/admin/login" />;
 };
@@ -22,8 +22,8 @@ const ProtectedRoute = ({ children }) => {
 // Simple admin dashboard component
 const AdminDashboard = () => {
   const handleLogout = () => {
-    // Clear authentication status
-    localStorage.removeItem('adminAuthenticated');
+    // Clear authentication status from sessionStorage
+    sessionStorage.removeItem('adminAuthenticated');
     // Redirect to login page
     window.location.href = '/admin/login';
   };

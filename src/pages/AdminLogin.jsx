@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/AdminLogin.css';
 
@@ -13,16 +13,6 @@ const AdminLogin = () => {
     password: ''
   });
   const [error, setError] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    // Check if user is already logged in
-    const authStatus = localStorage.getItem('adminAuthenticated');
-    if (authStatus === 'true') {
-      setIsAuthenticated(true);
-      navigate('/admin/dashboard');
-    }
-  }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,9 +28,8 @@ const AdminLogin = () => {
 
     // Check if credentials match the hardcoded admin credentials
     if (credentials.email === ADMIN_EMAIL && credentials.password === ADMIN_PASSWORD) {
-      // Set authentication status in localStorage
-      localStorage.setItem('adminAuthenticated', 'true');
-      setIsAuthenticated(true);
+      // Set authentication status in session state
+      sessionStorage.setItem('adminAuthenticated', 'true');
       navigate('/admin/dashboard');
     } else {
       setError('Invalid email or password. Please try again.');

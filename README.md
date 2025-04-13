@@ -1,12 +1,46 @@
-# React + Vite
+# LuxuryInTaste E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A luxury e-commerce platform built with React.
 
-Currently, two official plugins are available:
+## Admin Authentication
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The admin section of the application is protected by authentication. To access the admin dashboard, you need to set up environment variables with your admin credentials.
 
-## Expanding the ESLint configuration
+### Local Development
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Create a `.env` file in the root of the project with the following variables:
+   ```
+   VITE_ADMIN_EMAIL=your_admin_email@example.com
+   VITE_ADMIN_PASSWORD=your_admin_password
+   ```
+
+2. Start the development server:
+   ```
+   npm run dev
+   ```
+
+### Netlify Deployment
+
+To set up environment variables in Netlify:
+
+1. Log in to your Netlify account
+2. Go to your site's dashboard
+3. Navigate to Site settings > Build & deploy > Environment
+4. Add the following environment variables:
+   - Key: `VITE_ADMIN_EMAIL`, Value: `your_admin_email@example.com`
+   - Key: `VITE_ADMIN_PASSWORD`, Value: `your_admin_password`
+5. Click "Save"
+
+After setting up the environment variables, redeploy your site for the changes to take effect.
+
+## Accessing the Admin Dashboard
+
+1. Click on the logo in the footer of the website
+2. Enter your admin email and password
+3. You will be redirected to the admin dashboard
+
+## Security Notes
+
+- The admin credentials are stored in environment variables, not in the code
+- The authentication state is stored in sessionStorage, which is cleared when the browser tab is closed
+- For additional security, consider implementing a more robust authentication system in the future

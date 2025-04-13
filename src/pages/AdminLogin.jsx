@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/AdminLogin.css';
 
-// Hardcoded admin credentials
-const ADMIN_EMAIL = 'aimanshefa267@gmail.com';
-const ADMIN_PASSWORD = 'Aiman#lit@267';
-
 const AdminLogin = () => {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
@@ -26,8 +22,12 @@ const AdminLogin = () => {
     e.preventDefault();
     setError('');
 
-    // Check if credentials match the hardcoded admin credentials
-    if (credentials.email === ADMIN_EMAIL && credentials.password === ADMIN_PASSWORD) {
+    // Get admin credentials from environment variables
+    const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'aimanshefa267@gmail.com';
+    const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Aiman_lit@267';
+
+    // Check if credentials match the admin credentials from environment variables
+    if (credentials.email === adminEmail && credentials.password === adminPassword) {
       // Set authentication status in session state
       sessionStorage.setItem('adminAuthenticated', 'true');
       navigate('/admin/dashboard');

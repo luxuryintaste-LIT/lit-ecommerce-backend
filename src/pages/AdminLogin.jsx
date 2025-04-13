@@ -1,31 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMsal, useIsAuthenticated } from '@azure/msal-react';
-import { loginRequest } from '../config/authConfig';
 import '../styles/AdminLogin.css';
 
+// Hardcoded admin credentials
+const ADMIN_EMAIL = 'aimanshefa267@gmail.com';
+const ADMIN_PASSWORD = 'Aiman#lit@267';
+
 const AdminLogin = () => {
-  const { instance, accounts } = useMsal();
   const navigate = useNavigate();
+  const [credentials, setCredentials] = useState({
+    email: '',
+    password: ''
+  });
   const [error, setError] = useState('');
-  const isAuthenticated = useIsAuthenticated();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // If user is already logged in, redirect to admin dashboard
-    if (isAuthenticated) {
+    // Check if user is already logged in
+    const authStatus = localStorage.getItem('adminAuthenticated');
+    if (authStatus === 'true') {
+      setIsAuthenticated(true);
       navigate('/admin/dashboard');
     }
-  }, [isAuthenticated, navigate]);
+  }, [navigate]);
 
-  const handleLogin = async () => {
-    try {
-      setError('');
-      // Use loginRedirect instead of loginPopup for better SPA compatibility
-      await instance.loginRedirect(loginRequest);
-      // Note: The redirect will happen automatically, so code after this won't execute
-    } catch (error) {
-      console.error('Login failed:', error);
-      setError('Login failed. Please try again.');
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setError('');
+
+    // Check if credentials match the hardcoded admin credentials
+    if (credentials.email === ADMIN_EMAIL && credentials.password === ADMIN_PASSWORD) {
+      // Set authentication status in localStorage
+      localStorage.setItem('adminAuthenticated', 'true');
+      setIsAuthenticated(true);
+      navigate('/admin/dashboard');
+    } else {
+      setError('Invalid email or password. Please try again.');
     }
   };
 
@@ -34,12 +52,35 @@ const AdminLogin = () => {
       <div className="admin-login-box">
         <h1>Admin Login</h1>
         {error && <div className="error-message">{error}</div>}
-        <div className="login-content">
-          <p>Please sign in with your Microsoft account to access the admin dashboard.</p>
-          <button onClick={handleLogin} className="login-button">
-            Sign in with Microsoft
+        <form onSubmit={handleLogin} className="admin-login-form">
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={credentials.email}
+              onChange={handleChange}
+              required
+              placeholder="Enter your email"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={credentials.password}
+              onChange={handleChange}
+              required
+              placeholder="Enter your password"
+            />
+          </div>
+          <button type="submit" className="login-button">
+            Login
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

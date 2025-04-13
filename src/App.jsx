@@ -8,31 +8,34 @@ import ProductList from './components/ProductList';
 import Footer from './components/Footer';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import AdminLogin from './pages/AdminLogin';
-import AuthProvider from './components/AuthProvider';
-import AuthRedirectHandler from './components/AuthRedirectHandler';
-import { AuthenticatedTemplate, UnauthenticatedTemplate } from '@azure/msal-react';
 import bodyBg from './img/body-bg.png';
 import './App.css';
 
 // Protected route component
 const ProtectedRoute = ({ children }) => {
-  return (
-    <>
-      <AuthenticatedTemplate>
-        {children}
-      </AuthenticatedTemplate>
-      <UnauthenticatedTemplate>
-        <Navigate to="/admin/login" />
-      </UnauthenticatedTemplate>
-    </>
-  );
+  // Check if user is authenticated
+  const isAuthenticated = localStorage.getItem('adminAuthenticated') === 'true';
+  
+  return isAuthenticated ? children : <Navigate to="/admin/login" />;
 };
 
-// Simple admin dashboard component (you can replace this with your actual dashboard)
+// Simple admin dashboard component
 const AdminDashboard = () => {
+  const handleLogout = () => {
+    // Clear authentication status
+    localStorage.removeItem('adminAuthenticated');
+    // Redirect to login page
+    window.location.href = '/admin/login';
+  };
+
   return (
     <div className="admin-dashboard">
-      <h1>Admin Dashboard</h1>
+      <div className="admin-header">
+        <h1>Admin Dashboard</h1>
+        <button onClick={handleLogout} className="logout-button">
+          Logout
+        </button>
+      </div>
       <p>Welcome to the admin dashboard. You are now authenticated.</p>
     </div>
   );
@@ -40,33 +43,30 @@ const AdminDashboard = () => {
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={
-            <div className="app">
-              <Navbar />
-              <SearchBar />
-              <CategoryCards />
-              <FilterBar />
-              <ProductList />
-              <Footer />
-            </div>
-          } />
-          <Route path="/product/:productId" element={<ProductDetailsPage />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin/auth-redirect" element={<AuthRedirectHandler />} />
-          <Route 
-            path="/admin/dashboard" 
-            element={
-              <ProtectedRoute>
-                <AdminDashboard />
-              </ProtectedRoute>
-            } 
-          />
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <div className="app">
+            <Navbar />
+            <SearchBar />
+            <CategoryCards />
+            <FilterBar />
+            <ProductList />
+            <Footer />
+          </div>
+        } />
+        <Route path="/product/:productId" element={<ProductDetailsPage />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route 
+          path="/admin/dashboard" 
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          } 
+        />
+      </Routes>
+    </Router>
   );
 } 
 

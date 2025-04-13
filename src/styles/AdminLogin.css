@@ -21,17 +21,10 @@
   margin-bottom: 2rem;
 }
 
-.login-content {
+.admin-login-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  align-items: center;
-}
-
-.login-content p {
-  text-align: center;
-  color: #666;
-  margin: 0;
 }
 
 .form-group {
@@ -59,22 +52,19 @@
 }
 
 .login-button {
-  background-color: #2F2F2F;
+  background-color: #007bff;
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem;
   border: none;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
 .login-button:hover {
-  background-color: #1F1F1F;
+  background-color: #0056b3;
 }
 
 .error-message {
@@ -110,13 +100,35 @@
   margin: 0 auto;
 }
 
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
 .admin-dashboard h1 {
   color: #333;
-  margin-bottom: 1.5rem;
+  margin: 0;
 }
 
 .admin-dashboard p {
   color: #666;
   font-size: 1.1rem;
   line-height: 1.6;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
 } 

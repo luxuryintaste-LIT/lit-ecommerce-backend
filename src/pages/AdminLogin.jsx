@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMsal } from '@azure/msal-react';
+import { useMsal, useIsAuthenticated } from '@azure/msal-react';
 import { loginRequest } from '../config/authConfig';
 import '../styles/AdminLogin.css';
 
@@ -8,19 +8,21 @@ const AdminLogin = () => {
   const { instance, accounts } = useMsal();
   const navigate = useNavigate();
   const [error, setError] = useState('');
+  const isAuthenticated = useIsAuthenticated();
 
   useEffect(() => {
     // If user is already logged in, redirect to admin dashboard
-    if (accounts.length > 0) {
+    if (isAuthenticated) {
       navigate('/admin/dashboard');
     }
-  }, [accounts, navigate]);
+  }, [isAuthenticated, navigate]);
 
   const handleLogin = async () => {
     try {
-      // Attempt to login with Azure AD
-      await instance.loginPopup(loginRequest);
-      // After successful login, the useEffect will handle the redirect
+      setError('');
+      // Use loginRedirect instead of loginPopup for better SPA compatibility
+      await instance.loginRedirect(loginRequest);
+      // Note: The redirect will happen automatically, so code after this won't execute
     } catch (error) {
       console.error('Login failed:', error);
       setError('Login failed. Please try again.');
@@ -33,7 +35,7 @@ const AdminLogin = () => {
         <h1>Admin Login</h1>
         {error && <div className="error-message">{error}</div>}
         <div className="login-content">
-          <p>Please sign in with your Azure AD account to access the admin dashboard.</p>
+          <p>Please sign in with your Microsoft account to access the admin dashboard.</p>
           <button onClick={handleLogin} className="login-button">
             Sign in with Microsoft
           </button>

@@ -37,6 +37,17 @@ const AdminDashboard = () => {
         </button>
       </div>
       <p>Welcome to the admin dashboard. You are now authenticated.</p>
+      <div className="admin-actions">
+        <button className="admin-action-btn">
+          Add Product
+        </button>
+        <button className="admin-action-btn">
+          Edit Product
+        </button>
+        <button className="admin-action-btn">
+          Delete Product
+        </button>
+      </div>
     </div>
   );
 };

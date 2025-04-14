@@ -108,14 +108,28 @@
 }
 
 .admin-dashboard h1 {
-  color: #333;
+  color: white;
   margin: 0;
+  transition: all 0.3s ease;
+}
+
+.admin-dashboard h1:hover {
+  background: linear-gradient(85.68deg, #9333ea, #fffefe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .admin-dashboard p {
-  color: #666;
+  color: white;
   font-size: 1.1rem;
   line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.admin-dashboard p:hover {
+  background: linear-gradient(85.68deg, #9333ea, #fffefe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .logout-button {

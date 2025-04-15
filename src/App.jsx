@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import CategoryCards from './components/CategoryCards';
@@ -8,6 +8,7 @@ import ProductList from './components/ProductList';
 import Footer from './components/Footer';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import AdminLogin from './pages/AdminLogin';
+import AddProductForm from './components/AddProductForm';
 import bodyBg from './img/body-bg.png';
 import './App.css';
 
@@ -21,6 +22,8 @@ const ProtectedRoute = ({ children }) => {
 
 // Simple admin dashboard component
 const AdminDashboard = () => {
+  const [isAddProductModalOpen, setIsAddProductModalOpen] = useState(false);
+
   const handleLogout = () => {
     // Clear authentication status from sessionStorage
     sessionStorage.removeItem('adminAuthenticated');
@@ -38,7 +41,10 @@ const AdminDashboard = () => {
       </div>
       <p>Welcome to the admin dashboard. You are now authenticated.</p>
       <div className="admin-actions">
-        <button className="admin-action-btn">
+        <button 
+          className="admin-action-btn"
+          onClick={() => setIsAddProductModalOpen(true)}
+        >
           Add Product
         </button>
         <button className="admin-action-btn">
@@ -48,6 +54,11 @@ const AdminDashboard = () => {
           Delete Product
         </button>
       </div>
+
+      <AddProductForm 
+        isOpen={isAddProductModalOpen}
+        onClose={() => setIsAddProductModalOpen(false)}
+      />
     </div>
   );
 };

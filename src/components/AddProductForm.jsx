@@ -209,22 +209,30 @@ const AddProductForm = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          {selectedColor && (
-            <div className="form-group">
-              <label>Upload Images for {selectedColor}</label>
-              <input
-                type="file"
-                multiple
-                accept="image/*"
-                onChange={(e) => handleImageUpload(e, selectedColor)}
-              />
-              <div className="image-preview">
-                {formData.colorImages[selectedColor]?.map((file, index) => (
-                  <div key={index} className="preview-item">
-                    <img src={URL.createObjectURL(file)} alt={`Preview ${index + 1}`} />
+          {/* Show image upload sections for all selected colors */}
+          {formData.colors.length > 0 && (
+            <div className="color-images-section">
+              <h3>Product Images by Color</h3>
+              {formData.colors.map(color => (
+                <div key={color} className="color-image-upload">
+                  <div className="form-group">
+                    <label>Upload Images for {color}</label>
+                    <input
+                      type="file"
+                      multiple
+                      accept="image/*"
+                      onChange={(e) => handleImageUpload(e, color)}
+                    />
+                    <div className="image-preview">
+                      {formData.colorImages[color]?.map((file, index) => (
+                        <div key={index} className="preview-item">
+                          <img src={URL.createObjectURL(file)} alt={`${color} Preview ${index + 1}`} />
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           )}
 

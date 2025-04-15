@@ -51,6 +51,15 @@
   -webkit-text-fill-color: transparent;
 }
 
+.modal-content h3 {
+  color: white;
+  margin: 1.5rem 0 1rem;
+  font-size: 1.2rem;
+  background: linear-gradient(85.68deg, #9333ea, #fffefe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -159,6 +168,27 @@
 .size-tag button:hover,
 .feature-tag button:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* Color Images Section Styles */
+.color-images-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.color-image-upload {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.color-image-upload:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .image-preview {

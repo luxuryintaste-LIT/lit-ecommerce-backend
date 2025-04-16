@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import AdminLogin from './pages/AdminLogin';
 import AddProductForm from './components/AddProductForm';
+import WishlistPage from './pages/WishlistPage';
 import bodyBg from './img/body-bg.png';
 import './App.css';
 
@@ -79,6 +80,7 @@ function App() {
         } />
         <Route path="/product/:productId" element={<ProductDetailsPage />} />
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
         <Route 
           path="/admin/dashboard" 
           element={

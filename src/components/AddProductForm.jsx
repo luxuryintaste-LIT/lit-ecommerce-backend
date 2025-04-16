@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import '../styles/AddProductForm.css';
+import { saveProduct } from '../services/azureServices';
 
 const FileUploadBox = ({ onFileSelect, color, onFileRemove }) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -165,6 +166,9 @@ const AddProductForm = ({ isOpen, onClose }) => {
     'Red', 'Blue', 'Green', 'Black', 'White', 'Yellow', 'Purple', 'Orange', 'Pink', 'Brown'
   ];
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -254,11 +258,22 @@ const AddProductForm = ({ isOpen, onClose }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Form Data:', formData);
-    onClose();
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      // Save product data and upload images
+      const savedProduct = await saveProduct(formData);
+      console.log('Product saved successfully:', savedProduct);
+      onClose();
+    } catch (error) {
+      console.error('Error saving product:', error);
+      setSubmitError('Failed to save product. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -268,6 +283,11 @@ const AddProductForm = ({ isOpen, onClose }) => {
       <div className="modal-content">
         <button className="close-button" onClick={onClose}>×</button>
         <h2>Add New Product</h2>
+        {submitError && (
+          <div className="error-message">
+            {submitError}
+          </div>
+        )}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Brand Name</label>
@@ -421,10 +441,23 @@ const AddProductForm = ({ isOpen, onClose }) => {
           </div>
 
           <div className="form-actions">
-            <button type="submit" className="submit-button">Add Product</button>
-            <button type="button" className="cancel-button" onClick={onClose}>Cancel</button>
+            <button 
+              type="submit" 
+              className="submit-button"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Saving...' : 'Add Product'}
+            </button>
+            <button 
+              type="button" 
+              className="cancel-button" 
+              onClick={onClose}
+              disabled={isSubmitting}
+            >
+              Cancel
+            </button>
           </div>
-        </form> 
+        </form>
       </div>
     </div>
   );

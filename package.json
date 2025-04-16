@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@azure/cosmos": "^4.3.0",
     "@azure/msal-browser": "^4.10.0",
     "@azure/msal-react": "^3.0.9",
+    "@azure/storage-blob": "^12.27.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.0.1",

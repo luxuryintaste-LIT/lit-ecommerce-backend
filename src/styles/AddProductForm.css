@@ -218,28 +218,38 @@
   margin-top: 2rem;
 }
 
-.submit-button,
-.cancel-button {
-  padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 8px;
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.submit-button {
-  background: linear-gradient(85.68deg, #9333ea, #fffefe);
+  transition: all 0.3s ease;
+  background: radial-gradient(309.68% 308.36% at 53.98% 55.95%, rgba(0, 0, 0, 0.80) 0%, rgba(147, 51, 234, 0.40) 50%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: white;
+  border: none;
 }
 
 .cancel-button {
-  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
 }
 
-.submit-button:hover,
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
 .cancel-button:hover {
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
@@ -286,6 +296,8 @@
   .submit-button,
   .cancel-button {
     width: 100%;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
 }
 

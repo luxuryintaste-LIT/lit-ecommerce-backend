@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { WishlistProvider } from './context/WishlistContext';
 import Navbar from './components/Navbar';
 import CategoryCards from './components/CategoryCards';
 import SearchBar from './components/SearchBar';
@@ -66,31 +67,33 @@ const AdminDashboard = () => {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={
-          <div className="app">
-            <Navbar />
-            <SearchBar />
-            <CategoryCards />
-            <FilterBar />
-            <ProductList />
-            <Footer />
-          </div>
-        } />
-        <Route path="/product/:productId" element={<ProductDetailsPage />} />
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/wishlist" element={<WishlistPage />} />
-        <Route 
-          path="/admin/dashboard" 
-          element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          } 
-        />
-      </Routes>
-    </Router>
+    <WishlistProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={
+            <div className="app">
+              <Navbar />
+              <SearchBar />
+              <CategoryCards />
+              <FilterBar />
+              <ProductList />
+              <Footer />
+            </div>
+          } />
+          <Route path="/product/:productId" element={<ProductDetailsPage />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route 
+            path="/admin/dashboard" 
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            } 
+          />
+        </Routes>
+      </Router>
+    </WishlistProvider>
   );
 } 
 

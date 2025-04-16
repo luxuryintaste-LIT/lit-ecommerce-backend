@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,8 +13,13 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      // Add buffer polyfill
-      'buffer': 'buffer/',
+      // Polyfills
+      buffer: 'buffer',
+      process: 'process/browser',
+      stream: 'stream-browserify',
+      util: 'util',
+      assert: 'assert',
+      events: 'events',
     },
   },
   optimizeDeps: {
@@ -21,6 +27,14 @@ export default defineConfig({
       // Node.js global to browser globalThis
       define: {
         global: 'globalThis',
+      },
+    },
+  },
+  build: {
+    rollupOptions: {
+      plugins: [],
+      output: {
+        manualChunks: undefined,
       },
     },
   },

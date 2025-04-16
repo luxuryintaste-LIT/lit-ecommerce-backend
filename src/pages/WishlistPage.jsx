@@ -7,6 +7,12 @@ import '../styles/WishlistPage.css';
 const WishlistPage = () => {
   const { wishlist, removeFromWishlist } = useWishlist();
 
+  const handleRemoveClick = (e, productId) => {
+    e.preventDefault();
+    e.stopPropagation();
+    removeFromWishlist(productId);
+  };
+
   return (
     <div className="wishlist-page">
       <Navbar />
@@ -22,17 +28,17 @@ const WishlistPage = () => {
         <h1 className="wishlist-title">Your Wishlist</h1>
         <div className="wishlist-items">
           {wishlist.map(product => (
-            <div key={product.id} className="wishlist-item">
+            <Link to={`/product/${product.id}`} key={product.id} className="wishlist-item">
               <img src={product.image} alt={product.name} />
               <h3>{product.name}</h3>
               <p>${product.price}</p>
               <button 
                 className="remove-from-wishlist"
-                onClick={() => removeFromWishlist(product.id)}
+                onClick={(e) => handleRemoveClick(e, product.id)}
               >
                 Remove
               </button>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

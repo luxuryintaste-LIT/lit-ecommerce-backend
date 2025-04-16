@@ -1,10 +1,13 @@
+// Initialize Buffer globally first
+import { Buffer } from 'buffer'
+globalThis.Buffer = Buffer
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
-// Polyfills
-import { Buffer } from 'buffer'
+// Other Polyfills
 import process from 'process'
 import 'stream-browserify'
 import 'util'
@@ -20,8 +23,7 @@ import 'path-browserify'
 import 'browserify-fs'
 import 'browserify-zlib'
 
-// Add polyfills to window
-window.Buffer = Buffer
+// Add remaining polyfills to window
 window.process = process
 window.global = window
 

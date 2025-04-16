@@ -8,6 +8,7 @@ export default defineConfig({
   define: {
     'process.env': {},
     'global': 'globalThis',
+    'Buffer': ['buffer', 'Buffer'],
   },
   resolve: {
     alias: {
@@ -35,9 +36,20 @@ export default defineConfig({
         global: 'globalThis',
       },
     },
-    include: ['buffer', 'process', 'stream-browserify', 'util', 'assert', 'events', 'crypto-browserify'],
+    include: [
+      'buffer', 
+      'process', 
+      'stream-browserify', 
+      'util', 
+      'assert', 
+      'events', 
+      'crypto-browserify'
+    ],
   },
   build: {
+    commonjsOptions: {
+      include: [/node_modules/],
+    },
     rollupOptions: {
       output: {
         manualChunks: undefined,

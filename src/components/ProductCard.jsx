@@ -1,14 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useWishlist } from '../context/WishlistContext';
 import '../styles/ProductCard.css';
 
 const ProductCard = ({ product }) => {
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const isWishlisted = isInWishlist(product.id);
+
+  const handleWishlistClick = (e) => {
+    e.preventDefault();
+    if (isWishlisted) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
+    }
+  };
+
   return (
     <Link to={`/product/${product.id}`} className="product-card">
       <div className="product-image-container">
         <img src={product.image} alt={product.name} className="product-image" />
-        <button className="wishlist-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <button 
+          className={`wishlist-button ${isWishlisted ? 'active' : ''}`}
+          onClick={handleWishlistClick}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill={isWishlisted ? "white" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
         </button>

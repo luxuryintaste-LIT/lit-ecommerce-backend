@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import '../styles/AddProductForm.css';
 
-const FileUploadBox = ({ onFileSelect, color }) => {
+const FileUploadBox = ({ onFileSelect, color, onFileRemove }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [uploadProgress, setUploadProgress] = useState({});
 
@@ -41,7 +41,8 @@ const FileUploadBox = ({ onFileSelect, color }) => {
           progress: 0,
           name: file.name,
           size: (file.size / (1024 * 1024)).toFixed(1), // Convert to MB
-          status: 'uploading'
+          status: 'uploading',
+          file: file // Store the actual file object
         }
       }));
 
@@ -65,6 +66,16 @@ const FileUploadBox = ({ onFileSelect, color }) => {
     });
 
     onFileSelect(files);
+  };
+
+  const handleRemoveFile = (fileId) => {
+    setUploadProgress(prev => {
+      const newProgress = { ...prev };
+      const fileToRemove = newProgress[fileId].file;
+      delete newProgress[fileId];
+      onFileRemove(fileToRemove); // Call the removal callback
+      return newProgress;
+    });
   };
 
   return (
@@ -112,7 +123,10 @@ const FileUploadBox = ({ onFileSelect, color }) => {
                     <span>{file.status === 'completed' ? 'Completed' : `${file.progress}% done`}</span>
                   </div>
                 </div>
-                <button className="remove-file-btn">×</button>
+                <button 
+                  className="remove-file-btn"
+                  onClick={() => handleRemoveFile(fileId)}
+                >×</button>
               </div>
               <div className="progress-bar">
                 <div 
@@ -179,6 +193,16 @@ const AddProductForm = ({ isOpen, onClose }) => {
       colorImages: {
         ...prev.colorImages,
         [color]: [...(prev.colorImages[color] || []), ...files]
+      }
+    }));
+  }, []);
+
+  const handleRemoveImage = useCallback((fileToRemove, color) => {
+    setFormData(prev => ({
+      ...prev,
+      colorImages: {
+        ...prev.colorImages,
+        [color]: prev.colorImages[color].filter(file => file !== fileToRemove)
       }
     }));
   }, []);
@@ -345,6 +369,7 @@ const AddProductForm = ({ isOpen, onClose }) => {
                     <label>Upload Images for {color}</label>
                     <FileUploadBox
                       onFileSelect={(files) => handleImageUpload(files, color)}
+                      onFileRemove={(file) => handleRemoveImage(file, color)}
                       color={color}
                     />
                   </div>
@@ -399,7 +424,7 @@ const AddProductForm = ({ isOpen, onClose }) => {
             <button type="submit" className="submit-button">Add Product</button>
             <button type="button" className="cancel-button" onClick={onClose}>Cancel</button>
           </div>
-        </form>
+        </form> 
       </div>
     </div>
   );

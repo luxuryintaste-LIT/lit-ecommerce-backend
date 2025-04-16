@@ -110,20 +110,26 @@
 
 .color-selection button,
 .size-input button,
-.feature-input button {
+.feature-input button,
+.choose-file-btn {
   padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(85.68deg, #9333ea, #fffefe);
-  color: white;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  background: radial-gradient(309.68% 308.36% at 53.98% 55.95%, rgba(0, 0, 0, 0.80) 0%, rgba(147, 51, 234, 0.40) 50%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: white;
+  border: none;
 }
 
 .color-selection button:hover,
 .size-input button:hover,
-.feature-input button:hover {
+.feature-input button:hover,
+.choose-file-btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
 .selected-colors,
@@ -293,8 +299,10 @@
     flex-direction: column;
   }
 
-  .submit-button,
-  .cancel-button {
+  .color-selection button,
+  .size-input button,
+  .feature-input button,
+  .choose-file-btn {
     width: 100%;
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
@@ -331,21 +339,6 @@
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 1rem;
   font-size: 0.9rem;
-}
-
-.choose-file-btn {
-  background: linear-gradient(85.68deg, #9333ea, #fffefe);
-  color: white;
-  border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: transform 0.3s ease;
-}
-
-.choose-file-btn:hover {
-  transform: translateY(-2px);
 }
 
 /* Upload Progress Styles */

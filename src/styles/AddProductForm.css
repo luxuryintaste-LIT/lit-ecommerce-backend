@@ -287,4 +287,134 @@
   .cancel-button {
     width: 100%;
   }
+}
+
+/* Upload Box Styles */
+.upload-section {
+  width: 100%;
+}
+
+.upload-box {
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.upload-box.dragging {
+  border-color: #9333ea;
+  background: rgba(147, 51, 234, 0.1);
+}
+
+.upload-box .upload-icon {
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.upload-box p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.choose-file-btn {
+  background: linear-gradient(85.68deg, #9333ea, #fffefe);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.choose-file-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Upload Progress Styles */
+.upload-progress-list {
+  margin-top: 1rem;
+}
+
+.upload-progress-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.file-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.file-details {
+  flex: 1;
+}
+
+.file-name {
+  color: white;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.file-meta {
+  display: flex;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+}
+
+.remove-file-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.25rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.remove-file-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(85.68deg, #9333ea, #fffefe);
+  transition: width 0.3s ease;
 } 

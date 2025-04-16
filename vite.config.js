@@ -6,10 +6,8 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [react()],
   define: {
-    // Add Buffer polyfill
     'process.env': {},
-    'global': {},
-    'Buffer': ['buffer', 'Buffer'],
+    'global': 'globalThis',
   },
   resolve: {
     alias: {
@@ -33,15 +31,14 @@ export default defineConfig({
   },
   optimizeDeps: {
     esbuildOptions: {
-      // Node.js global to browser globalThis
       define: {
         global: 'globalThis',
       },
     },
+    include: ['buffer', 'process', 'stream-browserify', 'util', 'assert', 'events', 'crypto-browserify'],
   },
   build: {
     rollupOptions: {
-      plugins: [],
       output: {
         manualChunks: undefined,
       },

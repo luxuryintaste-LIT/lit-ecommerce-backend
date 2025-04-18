@@ -148,6 +148,23 @@ const Cart = () => {
           </div>
         </div>
       )}
+      
+      <div className="features-section">
+        <div className="feature-item">
+          <h3 className="feature-title">EASY RETURNS</h3>
+          <p className="feature-description">Take advantage of our easy return service if you're not satisfied with your order</p>
+        </div>
+        
+        <div className="feature-item">
+          <h3 className="feature-title">PAYMENTS</h3>
+          <p className="feature-description">Choose among the safest and most common payment methods</p>
+        </div>
+        
+        <div className="feature-item">
+          <h3 className="feature-title">CULTURE AND RELIABILITY</h3>
+          <p className="feature-description">A reliable and successful history in the fashion industry for over 50 years</p>
+        </div>
+      </div>
     </div>
   );
 };

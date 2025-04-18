@@ -196,6 +196,33 @@
   margin-top: 10px;
 }
 
+.features-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+}
+
+.feature-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.feature-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.feature-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
 @media (max-width: 768px) {
   .cart-page, .wishlist-page {
     padding: 20px;
@@ -226,5 +253,14 @@
 
   .order-summary {
     margin-top: 0;
+  }
+
+  .features-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .feature-item {
+    padding: 0;
   }
 } 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { WishlistProvider } from './context/WishlistContext';
-import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
 import CategoryCards from './components/CategoryCards';
 import SearchBar from './components/SearchBar';
@@ -12,7 +11,6 @@ import ProductDetailsPage from './pages/ProductDetailsPage';
 import AdminLogin from './pages/AdminLogin';
 import AddProductForm from './components/AddProductForm';
 import WishlistPage from './pages/WishlistPage';
-import CartPage from './pages/CartPage';
 import bodyBg from './img/body-bg.png';
 import './App.css';
 
@@ -70,34 +68,31 @@ const AdminDashboard = () => {
 function App() {
   return (
     <WishlistProvider>
-      <CartProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={
-              <div className="app">
-                <Navbar />
-                <SearchBar />
-                <CategoryCards />
-                <FilterBar />
-                <ProductList />
-                <Footer />
-              </div>
-            } />
-            <Route path="/product/:productId" element={<ProductDetailsPage />} />
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/wishlist" element={<WishlistPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route 
-              path="/admin/dashboard" 
-              element={
-                <ProtectedRoute>
-                  <AdminDashboard />
-                </ProtectedRoute>
-              } 
-            />
-          </Routes>
-        </Router>
-      </CartProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={
+            <div className="app">
+              <Navbar />
+              <SearchBar />
+              <CategoryCards />
+              <FilterBar />
+              <ProductList />
+              <Footer />
+            </div>
+          } />
+          <Route path="/product/:productId" element={<ProductDetailsPage />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route 
+            path="/admin/dashboard" 
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            } 
+          />
+        </Routes>
+      </Router>
     </WishlistProvider>
   );
 } 

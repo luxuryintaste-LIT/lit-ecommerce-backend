@@ -1,71 +1,154 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import Footer from '../components/Footer';
+import '../styles/Cart.css';
 
 const Cart = () => {
-  const { cartItems, removeFromCart } = useCart();
+  const {
+    cartItems,
+    removeFromCart,
+    updateQuantity,
+    updateSize,
+    applyPromoCode,
+    promoCode,
+    discount,
+    calculateSubtotal,
+    calculateTotal
+  } = useCart();
 
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
+  const [promoInput, setPromoInput] = useState('');
+  const [promoError, setPromoError] = useState('');
+
+  const handleQuantityChange = (productId, value) => {
+    if (value > 0) {
+      updateQuantity(productId, value);
+    }
   };
+
+  const handleSizeChange = (productId, size) => {
+    updateSize(productId, size);
+  };
+
+  const handleApplyPromo = () => {
+    if (promoInput.trim()) {
+      const success = applyPromoCode(promoInput.trim());
+      if (success) {
+        setPromoError('');
+      } else {
+        setPromoError('Invalid promo code');
+      }
+    }
+  };
+
+  const subtotal = calculateSubtotal();
+  const total = calculateTotal();
+  const shipping = 0; // Free shipping
 
   return (
     <div className="cart-page">
-      <div className="cart-container" style={{ minHeight: '70vh', padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
-        <h1 style={{ marginBottom: '20px' }}>Your Cart</h1>
-        {cartItems.length === 0 ? (
-          <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <p>Your cart is empty</p>
-          </div>
-        ) : (
-          <>
-            <div className="cart-items">
-              {cartItems.map((item, index) => (
-                <div key={index} className="cart-item" style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  padding: '15px',
-                  borderBottom: '1px solid #eee',
-                  gap: '20px'
-                }}>
-                  <img src={item.image} alt={item.name} style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
-                  <div className="item-details" style={{ flex: 1 }}>
-                    <h3>{item.name}</h3>
-                    <p>€{item.price}</p>
+      <h1>Your Cart</h1>
+      {cartItems.length === 0 ? (
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+          <p>Your cart is empty</p>
+        </div>
+      ) : (
+        <div className="cart-layout">
+          <div className="cart-items-container">
+            {cartItems.map((item) => (
+              <div key={item.id} className="cart-item">
+                <img src={item.image} alt={item.name} className="cart-item-image" />
+                <div className="cart-item-details">
+                  <div className="cart-item-info">
+                    {item.brand && <div className="cart-item-brand">{item.brand}</div>}
+                    <h3 className="cart-item-name">{item.name}</h3>
+                    <div className="cart-item-price">€{(item.price * (item.quantity || 1)).toFixed(2)}</div>
                   </div>
-                  <button
-                    onClick={() => removeFromCart(item.id)}
-                    style={{
-                      padding: '5px 10px',
-                      background: 'black',
-                      color: 'white',
-                      border: 'none',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    Remove
-                  </button>
+                  <div className="cart-item-controls">
+                    <select
+                      className="quantity-select"
+                      value={item.quantity || 1}
+                      onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                    >
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
+                        <option key={num} value={num}>{num}</option>
+                      ))}
+                    </select>
+                    {item.sizes && (
+                      <select
+                        className="size-select"
+                        value={item.size || 'M'}
+                        onChange={(e) => handleSizeChange(item.id, e.target.value)}
+                      >
+                        {item.sizes.map(size => (
+                          <option key={size} value={size}>{size}</option>
+                        ))}
+                      </select>
+                    )}
+                    <button
+                      className="remove-button"
+                      onClick={() => removeFromCart(item.id)}
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+
+          <div className="order-summary">
+            <h2 className="summary-title">Order Summary</h2>
+            <div className="summary-row">
+              <span>Subtotal</span>
+              <span>€{subtotal.toFixed(2)}</span>
             </div>
-            <div className="cart-summary" style={{ marginTop: '20px', textAlign: 'right' }}>
-              <h2>Total: €{calculateTotal()}</h2>
-              <button
-                style={{
-                  padding: '10px 20px',
-                  background: 'black',
-                  color: 'white',
-                  border: 'none',
-                  cursor: 'pointer',
-                  marginTop: '10px'
-                }}
-              >
-                Proceed to Checkout
-              </button>
+            <div className="summary-row">
+              <span>Shipping</span>
+              <span>€{shipping.toFixed(2)}</span>
             </div>
-          </>
-        )}
-      </div>
+            {discount > 0 && (
+              <div className="summary-row">
+                <span>Discount ({discount}%)</span>
+                <span>-€{(subtotal * (discount / 100)).toFixed(2)}</span>
+              </div>
+            )}
+            <div className="summary-row summary-total">
+              <span>Total</span>
+              <span>€{total.toFixed(2)}</span>
+            </div>
+            <div className="summary-row">
+              <span>The amount is debited in €.</span>
+            </div>
+            <button className="checkout-button">
+              PROCEED TO CHECKOUT
+            </button>
+
+            <div className="promo-code">
+              <h3 className="promo-code-title">Promotional Code</h3>
+              <div className="promo-code-input">
+                <input
+                  type="text"
+                  className="promo-input"
+                  placeholder="Enter promo code"
+                  value={promoInput}
+                  onChange={(e) => setPromoInput(e.target.value)}
+                />
+                <button className="apply-button" onClick={handleApplyPromo}>
+                  APPLY
+                </button>
+              </div>
+              {promoError && (
+                <p style={{ color: 'red', marginTop: '8px', fontSize: '14px' }}>{promoError}</p>
+              )}
+              {promoCode && (
+                <p style={{ color: 'green', marginTop: '8px', fontSize: '14px' }}>
+                  Promo code applied successfully!
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
       <Footer />
     </div>
   );

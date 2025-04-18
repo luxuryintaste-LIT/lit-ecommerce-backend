@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import menWomenImage from '../img/men.png';  // Import the image directly
 import '../styles/ProductDetails.css';
+import { toast } from 'react-hot-toast';
 
 const ProductDetailsPage = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
+  const { addToCart } = useCart();
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [quantity, setQuantity] = useState(1);
@@ -46,11 +49,18 @@ const ProductDetailsPage = () => {
 
   const handleAddToCart = () => {
     if (!selectedColor || !selectedSize) {
-      alert('Please select both color and size');
+      toast.error('Please select both color and size');
       return;
     }
-    // Add to cart logic would go here
-    alert(`Added to cart: ${product.name} - ${selectedColor} - ${selectedSize} - Quantity: ${quantity}`);
+    
+    const productToAdd = {
+      ...product,
+      color: selectedColor,
+      size: selectedSize,
+      quantity: quantity
+    };
+    
+    addToCart(productToAdd);
   };
 
   const handleBuyNow = () => {

@@ -48,6 +48,12 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-right">
+        <Link to="/cart" className="cart-icon">
+          <i className="fas fa-shopping-cart"></i>
+        </Link>
+        <Link to="/wishlist" className="wishlist-icon">
+          <i className="fas fa-heart"></i>
+        </Link>
         <Link to="/notifications" className="notification-icon">
           <i className="far fa-bell"></i>
         </Link>

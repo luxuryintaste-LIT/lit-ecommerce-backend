@@ -2,8 +2,6 @@
   min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
-  background: url('../img/body-bg.png') no-repeat center center fixed;
-  background-size: cover;
   color: white;
 }
 

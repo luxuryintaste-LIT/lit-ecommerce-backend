@@ -1,17 +1,19 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
 
 const CartContext = createContext();
 
-export const useCart = () => {
-  return useContext(CartContext);
-};
+export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(() => {
+  const [cart, setCart] = useState([]);
+  const [notification, setNotification] = useState(null);
+
+  useEffect(() => {
     const savedCart = localStorage.getItem('cart');
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -29,29 +31,19 @@ export const CartProvider = ({ children }) => {
       }
       return [...prevCart, { ...product, quantity: 1 }];
     });
-    
-    toast.success('Product added to cart', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
+
+    setNotification('Product added to cart');
+    setTimeout(() => setNotification(null), 5000);
   };
 
   const removeFromCart = (productId) => {
     setCart(prevCart => prevCart.filter(item => item.id !== productId));
   };
 
-  const updateQuantity = (productId, newQuantity) => {
-    if (newQuantity < 1) return;
-    
+  const updateQuantity = (productId, quantity) => {
     setCart(prevCart =>
       prevCart.map(item =>
-        item.id === productId
-          ? { ...item, quantity: newQuantity }
-          : item
+        item.id === productId ? { ...item, quantity } : item
       )
     );
   };
@@ -60,7 +52,8 @@ export const CartProvider = ({ children }) => {
     cart,
     addToCart,
     removeFromCart,
-    updateQuantity
+    updateQuantity,
+    notification
   };
 
   return (

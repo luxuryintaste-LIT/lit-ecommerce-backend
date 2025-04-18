@@ -1,8 +1,18 @@
 .wishlist-page {
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
   background: url('../img/body-bg.png') no-repeat center center fixed;
   background-size: cover;
   color: white;
+}
+
+.wishlist-content {
+  flex: 1;
+  padding: 20px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .back-button-container {
@@ -165,5 +175,9 @@
 
   .filter-container {
     justify-content: center;
+  }
+
+  .wishlist-content {
+    padding: 20px;
   }
 } 

@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useWishlist } from '../context/WishlistContext';
 import { useCart } from '../context/CartContext';
-import { toast } from 'react-hot-toast';
 import '../styles/ProductCard.css';
 
 const ProductCard = ({ product }) => {
-  const navigate = useNavigate();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const { addToCart } = useCart();
   const isWishlisted = isInWishlist(product.id);
@@ -22,9 +20,7 @@ const ProductCard = ({ product }) => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    // Redirect to product details page for color and size selection
-    navigate(`/product/${product.id}`);
-    toast.info('Please select color and size');
+    addToCart(product);
   };
 
   return (
@@ -54,7 +50,9 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="button-container">
           <Link to={`/product/${product.id}`} className="buy-now">Buy Now</Link>
-          <button className="add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
+          <button className="add-to-cart" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
         </div>
       </div>
     </Link>

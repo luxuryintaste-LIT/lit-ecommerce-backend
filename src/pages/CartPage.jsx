@@ -8,99 +8,79 @@ import '../styles/CartPage.css';
 const CartPage = () => {
   const { cart, removeFromCart, updateQuantity } = useCart();
 
-  const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  const shipping = 0.00; // Free shipping
-  const total = subtotal + shipping;
+  const handleQuantityChange = (productId, newQuantity) => {
+    if (newQuantity >= 1) {
+      updateQuantity(productId, newQuantity);
+    }
+  };
+
+  const calculateTotal = () => {
+    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
 
   return (
     <div className="cart-page">
       <Navbar />
+      <div className="back-button-container">
+        <Link to="/" className="back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back
+        </Link>
+      </div>
       <div className="cart-container">
-        <div className="cart-content">
-          <div className="cart-items-section">
-            <h1>Your Cart</h1>
-            {cart.length === 0 ? (
-              <div className="empty-cart">
-                <p>Your cart is empty</p>
-                <Link to="/" className="continue-shopping">Continue Shopping</Link>
-              </div>
-            ) : (
-              <div className="cart-items">
-                {cart.map((item) => (
-                  <div key={item.id} className="cart-item">
-                    <img src={item.image} alt={item.name} className="item-image" />
-                    <div className="item-details">
-                      <div className="item-brand">{item.brand}</div>
-                      <div className="item-name">{item.name}</div>
-                      <div className="item-code">GIGLIO CODE: {item.code}</div>
+        <h1 className="cart-title">Your Shopping Cart</h1>
+        
+        {cart.length === 0 ? (
+          <div className="empty-cart">
+            <p>Your cart is empty</p>
+            <Link to="/" className="continue-shopping">Continue Shopping</Link>
+          </div>
+        ) : (
+          <>
+            <div className="cart-items">
+              {cart.map(item => (
+                <div key={item.id} className="cart-item">
+                  <img src={item.image} alt={item.name} />
+                  <div className="cart-item-details">
+                    <h3>{item.name}</h3>
+                    <p className="cart-item-price">${item.price}</p>
+                    <div className="quantity-controls">
                       <button 
-                        className="remove-item"
-                        onClick={() => removeFromCart(item.id)}
+                        onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                        className="quantity-btn"
                       >
-                        REMOVE
+                        -
+                      </button>
+                      <span className="quantity">{item.quantity}</span>
+                      <button 
+                        onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                        className="quantity-btn"
+                      >
+                        +
                       </button>
                     </div>
-                    <div className="item-color">
-                      <span className="label">COLOUR</span>
-                      <span>{item.color}</span>
-                    </div>
-                    <div className="item-size">
-                      <span className="label">SIZE</span>
-                      <span>{item.size}</span>
-                    </div>
-                    <div className="item-quantity">
-                      <span className="label">QUANTITY</span>
-                      <select 
-                        value={item.quantity}
-                        onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
-                      >
-                        {[1, 2, 3, 4, 5].map(num => (
-                          <option key={num} value={num}>{num}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="item-total">
-                      <span className="label">TOTAL</span>
-                      <span>€{(item.price * item.quantity).toFixed(2)}</span>
-                    </div>
+                    <button 
+                      className="remove-from-cart"
+                      onClick={() => removeFromCart(item.id)}
+                    >
+                      Remove
+                    </button>
                   </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {cart.length > 0 && (
-            <div className="order-summary">
-              <h2>Order Summary</h2>
-              <div className="summary-row">
-                <span>SUBTOTAL</span>
-                <span>€{subtotal.toFixed(2)}</span>
-              </div>
-              <div className="summary-row">
-                <span>SHIPPING</span>
-                <span>€{shipping.toFixed(2)}</span>
-              </div>
-              <div className="summary-row total">
-                <span>TOTAL</span>
-                <div className="total-amount">
-                  <span>€{total.toFixed(2)}</span>
-                  <span className="converted-amount">(¥{(total * 108.22).toFixed(2)})</span>
                 </div>
+              ))}
+            </div>
+            <div className="cart-summary">
+              <div className="cart-total">
+                <span>Total:</span>
+                <span>${calculateTotal().toFixed(2)}</span>
               </div>
-              <div className="amount-note">The amount is debited in €.</div>
-              <button className="checkout-button">PROCEED TO CHECKOUT</button>
+              <button className="checkout-button">
+                Proceed to Checkout
+              </button>
             </div>
-          )}
-        </div>
-
-        {cart.length > 0 && (
-          <div className="promotional-code">
-            <h3>Promotional Code</h3>
-            <div className="promo-input">
-              <input type="text" placeholder="Enter the promo code" />
-              <button>APPLY</button>
-            </div>
-          </div>
+          </>
         )}
       </div>
       <Footer />

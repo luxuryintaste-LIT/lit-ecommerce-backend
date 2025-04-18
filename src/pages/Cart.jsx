@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
-import Footer from '../components/Footer';
 import '../styles/Cart.css';
 
 const Cart = () => {
@@ -149,7 +148,6 @@ const Cart = () => {
           </div>
         </div>
       )}
-      <Footer />
     </div>
   );
 };

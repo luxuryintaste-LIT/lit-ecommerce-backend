@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { useWishlist } from '../context/WishlistContext';
 import '../styles/WishlistPage.css';
 
@@ -76,7 +75,6 @@ const WishlistPage = () => {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

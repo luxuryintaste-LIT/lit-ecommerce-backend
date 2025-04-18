@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
+import Footer from '../components/Footer';
 import '../styles/Cart.css';
 
 const Cart = () => {
@@ -165,6 +166,8 @@ const Cart = () => {
           <p className="feature-description">A reliable and successful history in the fashion industry for over 50 years</p>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };

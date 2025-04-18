@@ -15,14 +15,24 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    const existingItem = cart.find(item => item.id === product.id);
+    // For product card items that don't have color/size
+    if (!product.color && !product.size) {
+      toast.error('Please select color and size first');
+      return;
+    }
+
+    const existingItem = cart.find(item => 
+      item.id === product.id && 
+      item.color === product.color && 
+      item.size === product.size
+    );
     
     if (existingItem) {
       toast.error('This item is already in your cart');
       return;
     }
 
-    setCart([...cart, { ...product, quantity: 1 }]);
+    setCart([...cart, { ...product, quantity: product.quantity || 1 }]);
     toast.success('Added to cart successfully');
   };
 

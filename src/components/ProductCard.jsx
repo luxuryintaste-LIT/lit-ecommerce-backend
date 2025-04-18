@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useWishlist } from '../context/WishlistContext';
 import { useCart } from '../context/CartContext';
 import { toast } from 'react-hot-toast';
 import '../styles/ProductCard.css';
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const { addToCart } = useCart();
   const isWishlisted = isInWishlist(product.id);
@@ -21,7 +22,9 @@ const ProductCard = ({ product }) => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    addToCart(product);
+    // Redirect to product details page for color and size selection
+    navigate(`/product/${product.id}`);
+    toast.info('Please select color and size');
   };
 
   return (

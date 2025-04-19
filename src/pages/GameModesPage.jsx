@@ -142,10 +142,10 @@ const GameModesPage = () => {
                 <div key={mode.id} className="game-mode-card">
                   <div className="card-image">
                     <img src={mode.image} alt={mode.title} />
-                    <div className="card-content">
-                      <h3>{mode.title}</h3>
-                      <p>{mode.description}</p>
-                    </div>
+                  </div>
+                  <div className="card-content">
+                    <h3>{mode.title}</h3>
+                    <p>{mode.description}</p>
                   </div>
                   <button className="play-now-btn">Play Now</button>
                 </div>

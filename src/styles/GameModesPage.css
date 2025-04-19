@@ -66,8 +66,10 @@
 }
 
 .quick-menu li.active {
-  background: linear-gradient(90deg, var(--primary-purple), var(--secondary-purple));
-  box-shadow: var(--neon-glow);
+  background: linear-gradient(90deg, #8A2BE2, #9370DB);
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+  color: white;
+  font-weight: 500;
 }
 
 .notification-card {
@@ -109,18 +111,15 @@
 
 .content-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  border-radius: 15px;
+  flex-direction: column;
+  gap: 15px;
   padding: 15px;
 }
 
 .tabs {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .tabs button {
@@ -136,6 +135,11 @@
 .tabs button.active {
   background: linear-gradient(90deg, var(--primary-purple), var(--secondary-purple));
   box-shadow: var(--neon-glow);
+}
+
+.filter {
+  width: 100%;
+  max-width: 200px;
 }
 
 .filter select {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import '../styles/GameModesPage.css';
 
 const GameModesPage = () => {
@@ -18,14 +19,6 @@ const GameModesPage = () => {
       message: 'Game Invite – Team battle in Tournament mode',
       buttons: ['Join', 'Skip']
     }
-  ]);
-
-  const [leaderboard] = useState([
-    { rank: 1, username: 'LuxuryinTaste', coins: 555 },
-    { rank: 2, username: 'Gamer42', coins: 534 },
-    { rank: 3, username: 'Alix Johnson', coins: 510 },
-    { rank: 4, username: 'Mariya Satnova', coins: 500 },
-    { rank: 5, username: 'Liya James', coins: 485 }
   ]);
 
   const gameModes = [
@@ -55,6 +48,14 @@ const GameModesPage = () => {
     }
   ];
 
+  const leaderboard = [
+    { rank: 1, username: 'LuxuryinTaste', coins: 555 },
+    { rank: 2, username: 'Gamer42', coins: 534 },
+    { rank: 3, username: 'Alix Johnson', coins: 510 },
+    { rank: 4, username: 'Mariya Satnova', coins: 500 },
+    { rank: 5, username: 'Liya James', coins: 485 }
+  ];
+
   return (
     <div className="game-modes-page">
       <Navbar />
@@ -62,7 +63,7 @@ const GameModesPage = () => {
         {/* Left Sidebar */}
         <div className="sidebar">
           <div className="quick-menu">
-            <h2>Quick Menu</h2>
+            <h3>Quick Menu</h3>
             <ul>
               <li className="active">Game Mode</li>
               <li>Tournaments</li>
@@ -90,7 +91,7 @@ const GameModesPage = () => {
 
         {/* Main Content */}
         <div className="main-content">
-          {/* Top Tabs */}
+          {/* Tabs and Filter */}
           <div className="content-header">
             <div className="tabs">
               <button 
@@ -118,16 +119,23 @@ const GameModesPage = () => {
                 Footwear
               </button>
             </div>
-            <select className="category-filter">
-              <option>Category ▼</option>
-            </select>
+            <div className="filter">
+              <select>
+                <option>Category ▼</option>
+                <option>All</option>
+                <option>New</option>
+                <option>Popular</option>
+              </select>
+            </div>
           </div>
 
           {/* Game Mode Cards */}
           <div className="game-modes-grid">
             {gameModes.map(mode => (
               <div key={mode.id} className="game-mode-card">
-                <img src={mode.image} alt={mode.title} />
+                <div className="card-image">
+                  <img src={mode.image} alt={mode.title} />
+                </div>
                 <h3>{mode.title}</h3>
                 <p>{mode.description}</p>
                 <button className="play-now-btn">Play Now</button>
@@ -138,7 +146,7 @@ const GameModesPage = () => {
           {/* Leaderboard */}
           <div className="leaderboard-section">
             <div className="leaderboard-header">
-              <h2>Leaderboard</h2>
+              <h3>Leaderboard</h3>
               <button className="view-all-btn">View All</button>
             </div>
             <div className="leaderboard-card">
@@ -158,37 +166,7 @@ const GameModesPage = () => {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="game-modes-footer">
-        <div className="footer-content">
-          <div className="footer-left">
-            <div className="logo">L T</div>
-          </div>
-          <div className="footer-center">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms of Services</Link>
-          </div>
-          <div className="footer-right">
-            <div className="community-section">
-              <input type="email" placeholder="Enter your email" />
-              <button className="subscribe-btn">Subscribe</button>
-            </div>
-            <div className="social-icons">
-              <a href="#"><img src="/email-icon.png" alt="Email" /></a>
-              <a href="#"><img src="/linkedin-icon.png" alt="LinkedIn" /></a>
-              <a href="#"><img src="/instagram-icon.png" alt="Instagram" /></a>
-              <a href="#"><img src="/twitter-icon.png" alt="Twitter" /></a>
-            </div>
-            <div className="app-download">
-              <button className="play-store-btn">Google Play</button>
-              <button className="app-store-btn">App Store</button>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

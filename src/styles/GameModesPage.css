@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-gradient: linear-gradient(135deg, #8A2BE2, #4B0082);
-  --neon-purple: #8A2BE2;
-  --dark-purple: #4B0082;
+  --primary-purple: #8A2BE2;
+  --secondary-purple: #9370DB;
+  --neon-glow: 0 0 10px rgba(138, 43, 226, 0.5);
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
 }
 
 .game-modes-page {
   min-height: 100vh;
-  background: var(--primary-gradient);
-  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
   color: white;
+  font-family: 'Poppins', sans-serif;
 }
 
 .game-modes-container {
@@ -24,17 +24,23 @@
 /* Sidebar Styles */
 .sidebar {
   width: 300px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 20px;
-  border: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.quick-menu h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+.quick-menu, .notifications {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.quick-menu h3, .notifications h3 {
+  color: var(--primary-purple);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
 }
 
 .quick-menu ul {
@@ -43,7 +49,7 @@
 }
 
 .quick-menu li {
-  padding: 12px;
+  padding: 10px;
   margin: 5px 0;
   border-radius: 8px;
   cursor: pointer;
@@ -55,25 +61,15 @@
 }
 
 .quick-menu li.active {
-  background: var(--neon-purple);
-  box-shadow: 0 0 15px var(--neon-purple);
-}
-
-.notifications {
-  margin-top: 30px;
-}
-
-.notifications h3 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
+  background: linear-gradient(90deg, var(--primary-purple), var(--secondary-purple));
+  box-shadow: var(--neon-glow);
 }
 
 .notification-card {
   background: var(--glass-bg);
   border-radius: 10px;
   padding: 15px;
-  margin-bottom: 15px;
-  border: 1px solid var(--glass-border);
+  margin-bottom: 10px;
 }
 
 .notification-buttons {
@@ -83,61 +79,65 @@
 }
 
 .notification-btn {
-  padding: 8px 15px;
+  flex: 1;
+  padding: 8px;
   border: none;
   border-radius: 5px;
-  background: var(--neon-purple);
+  background: var(--glass-bg);
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .notification-btn:hover {
-  box-shadow: 0 0 10px var(--neon-purple);
+  background: var(--primary-purple);
+  box-shadow: var(--neon-glow);
 }
 
 /* Main Content Styles */
 .main-content {
   flex: 1;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 20px;
-  border: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .content-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  padding: 15px;
 }
 
 .tabs {
   display: flex;
-  gap: 15px;
+  gap: 10px;
 }
 
 .tabs button {
-  padding: 10px 20px;
+  padding: 8px 15px;
   border: none;
+  border-radius: 8px;
   background: transparent;
   color: white;
   cursor: pointer;
-  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .tabs button.active {
-  background: var(--neon-purple);
-  box-shadow: 0 0 15px var(--neon-purple);
+  background: linear-gradient(90deg, var(--primary-purple), var(--secondary-purple));
+  box-shadow: var(--neon-glow);
 }
 
-.category-filter {
-  padding: 10px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+.filter select {
+  padding: 8px 15px;
+  border: none;
   border-radius: 8px;
+  background: var(--glass-bg);
   color: white;
   cursor: pointer;
 }
@@ -147,78 +147,88 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  margin-bottom: 30px;
 }
 
 .game-mode-card {
   background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   border-radius: 15px;
   padding: 20px;
-  border: 1px solid var(--glass-border);
   transition: all 0.3s ease;
 }
 
 .game-mode-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+  box-shadow: var(--neon-glow);
 }
 
-.game-mode-card img {
+.card-image {
   width: 100%;
   height: 150px;
-  object-fit: cover;
+  background: var(--glass-bg);
   border-radius: 10px;
   margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .game-mode-card h3 {
-  font-size: 1.2rem;
+  color: var(--primary-purple);
   margin-bottom: 10px;
 }
 
 .play-now-btn {
   width: 100%;
-  padding: 12px;
-  background: var(--neon-purple);
+  padding: 10px;
+  margin-top: 15px;
   border: none;
   border-radius: 8px;
+  background: linear-gradient(90deg, var(--primary-purple), var(--secondary-purple));
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 15px;
 }
 
 .play-now-btn:hover {
-  box-shadow: 0 0 15px var(--neon-purple);
+  box-shadow: var(--neon-glow);
+  transform: scale(1.05);
 }
 
 /* Leaderboard Styles */
 .leaderboard-section {
-  margin-top: 30px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  padding: 20px;
 }
 
 .leaderboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .view-all-btn {
   padding: 8px 15px;
-  background: var(--neon-purple);
   border: none;
   border-radius: 8px;
+  background: var(--glass-bg);
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.leaderboard-card {
-  background: var(--glass-bg);
-  border-radius: 15px;
-  padding: 20px;
-  border: 1px solid var(--glass-border);
+.view-all-btn:hover {
+  background: var(--primary-purple);
+  box-shadow: var(--neon-glow);
 }
 
 .leaderboard-item {
@@ -228,14 +238,10 @@
   border-bottom: 1px solid var(--glass-border);
 }
 
-.leaderboard-item:last-child {
-  border-bottom: none;
-}
-
 .rank {
+  color: var(--primary-purple);
   font-weight: bold;
   margin-right: 15px;
-  color: var(--neon-purple);
 }
 
 .player-info {
@@ -256,96 +262,6 @@
   height: 20px;
 }
 
-/* Footer Styles */
-.game-modes-footer {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  padding: 30px;
-  margin-top: 30px;
-  border-top: 1px solid var(--glass-border);
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-center {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-center a {
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.footer-center a:hover {
-  color: var(--neon-purple);
-}
-
-.community-section {
-  display: flex;
-  gap: 10px;
-}
-
-.community-section input {
-  padding: 10px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 8px;
-  color: white;
-}
-
-.subscribe-btn {
-  padding: 10px 15px;
-  background: var(--neon-purple);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-  margin: 15px 0;
-}
-
-.social-icons img {
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s ease;
-}
-
-.social-icons img:hover {
-  transform: scale(1.1);
-}
-
-.app-download {
-  display: flex;
-  gap: 10px;
-}
-
-.app-download button {
-  padding: 10px 15px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.app-download button:hover {
-  background: var(--neon-purple);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .game-modes-container {
@@ -354,25 +270,18 @@
 
   .sidebar {
     width: 100%;
-    margin-bottom: 20px;
   }
 
-  .footer-content {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .footer-center {
+  .content-header {
     flex-direction: column;
     gap: 10px;
   }
 
-  .community-section {
-    flex-direction: column;
+  .tabs {
+    flex-wrap: wrap;
   }
 
-  .app-download {
-    flex-direction: column;
+  .game-modes-grid {
+    grid-template-columns: 1fr;
   }
 } 

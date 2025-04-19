@@ -181,7 +181,6 @@
   position: relative;
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
   border-radius: 15px;
   padding: 0;
   transition: all 0.3s ease;
@@ -239,7 +238,6 @@
 .play-now-btn {
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
   border: none;
   border-radius: 8px;
   background: radial-gradient(309.68% 308.36% at 53.98% 55.95%, rgba(0, 0, 0, 0.80) 0%, rgba(147, 51, 234, 0.40) 50%);

@@ -195,11 +195,7 @@
   box-shadow: var(--neon-glow);
 }
 
-.card-content {
-  padding: 15px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-}
+.card-content {}
 
 .card-image {
   width: 100%;

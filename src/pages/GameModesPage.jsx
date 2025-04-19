@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import singleModeImage from '../img/single-mode.png';
+import tournamentModeImage from '../img/tournament-mode.png';
+import teamBattleImage from '../img/team-battle.png';
+import fashionShowdownImage from '../img/fashion-showdown.png';
 import '../styles/GameModesPage.css';
 
 const GameModesPage = () => {
@@ -26,25 +30,25 @@ const GameModesPage = () => {
       id: 1,
       title: 'Single Mode',
       description: 'Normal game mode with two options',
-      image: '/src/img/single-mode.png'
+      image: singleModeImage
     },
     {
       id: 2,
       title: 'Tournament Mode',
       description: '8 players facing off in elimination',
-      image: '/src/img/tournament-mode.png'
+      image: tournamentModeImage
     },
     {
       id: 3,
       title: 'Team Battle',
       description: 'Team up with your friends',
-      image: '/src/img/team-battle.png'
+      image: teamBattleImage
     },
     {
       id: 4,
       title: 'Fashion Showdown',
       description: 'Among 6, one wins based on fashion',
-      image: '/src/img/fashion-showdown.png'
+      image: fashionShowdownImage
     }
   ];
 

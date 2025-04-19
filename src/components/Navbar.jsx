@@ -86,7 +86,7 @@ const Navbar = () => {
           </div>
         </Link>
         <div className="user-profile">
-          <img src="/default-avatar.png" alt="Profile" className="profile-image" />
+          <img src="/src/img/default-avatar.png" alt="Profile" className="profile-image" />
         </div>
       </div>
     </nav>

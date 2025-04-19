@@ -26,25 +26,25 @@ const GameModesPage = () => {
       id: 1,
       title: 'Single Mode',
       description: 'Normal game mode with two options',
-      image: '/img/single-mode.jpg'
+      image: '/img/single-mode.png'
     },
     {
       id: 2,
       title: 'Tournament Mode',
       description: '8 players facing off in elimination',
-      image: '/img/tournament-mode.jpg'
+      image: '/img/tournament-mode.png'
     },
     {
       id: 3,
       title: 'Team Battle',
       description: 'Team up with your friends',
-      image: '/img/team-battle.jpg'
+      image: '/img/team-battle.png'
     },
     {
       id: 4,
       title: 'Fashion Showdown',
       description: 'Among 6, one wins based on fashion',
-      image: '/img/fashion-showdown.jpg'
+      image: '/img/fashion-showdown.png'
     }
   ];
 
@@ -123,24 +123,30 @@ const GameModesPage = () => {
 
           {/* Game Mode Cards */}
           <div className="game-modes-grid">
-            <div className="filter">
-              <select>
-                <option>Category ▼</option>
-                <option>All</option>
-                <option>New</option>
-                <option>Popular</option>
-              </select>
-            </div>
-            {gameModes.map(mode => (
-              <div key={mode.id} className="game-mode-card">
-                <div className="card-image">
-                  <img src={mode.image} alt={mode.title} />
-                </div>
-                <h3>{mode.title}</h3>
-                <p>{mode.description}</p>
-                <button className="play-now-btn">Play Now</button>
+            <div className="category-section">
+              <div className="filter">
+                <select>
+                  <option>Category ▼</option>
+                  <option>All</option>
+                  <option>New</option>
+                  <option>Popular</option>
+                </select>
               </div>
-            ))}
+            </div>
+            <div className="cards-section">
+              {gameModes.map(mode => (
+                <div key={mode.id} className="game-mode-card">
+                  <div className="card-image">
+                    <img src={mode.image} alt={mode.title} />
+                    <div className="card-content">
+                      <h3>{mode.title}</h3>
+                      <p>{mode.description}</p>
+                    </div>
+                  </div>
+                  <button className="play-now-btn">Play Now</button>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Leaderboard */}

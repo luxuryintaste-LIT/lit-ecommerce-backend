@@ -66,8 +66,8 @@
 }
 
 .quick-menu li.active {
-  background: linear-gradient(90deg, #8A2BE2, #9370DB);
-  box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+  background: radial-gradient(309.68% 308.36% at 53.98% 55.95%, rgba(0, 0, 0, 0.80) 0%, rgba(147, 51, 234, 0.40) 50%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: white;
   font-weight: 500;
 }
@@ -157,15 +157,24 @@
 
 /* Game Modes Grid */
 .game-modes-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 20px;
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   border-radius: 15px;
   padding: 20px;
-  margin-top: 20px;
+}
+
+.category-section {
+  width: 100%;
+}
+
+.cards-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .game-mode-card {
@@ -177,6 +186,9 @@
   padding: 0;
   transition: all 0.3s ease;
   overflow: hidden;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .game-mode-card:hover {
@@ -197,6 +209,15 @@
   object-fit: cover;
 }
 
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
 .game-mode-card h3,
 .game-mode-card p {
   position: absolute;
@@ -206,25 +227,23 @@
 }
 
 .game-mode-card h3 {
-  bottom: 60px;
-  font-size: 1.5rem;
+  bottom: 50px;
+  font-size: 1.2rem;
 }
 
 .game-mode-card p {
-  bottom: 40px;
-  font-size: 1rem;
+  bottom: 30px;
+  font-size: 0.9rem;
 }
 
 .play-now-btn {
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 10px;
-  margin-top: 15px;
+  margin-top: 10px;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(90deg, var(--primary-purple), var(--secondary-purple));
+  background: radial-gradient(309.68% 308.36% at 53.98% 55.95%, rgba(0, 0, 0, 0.80) 0%, rgba(147, 51, 234, 0.40) 50%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;

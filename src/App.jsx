@@ -15,6 +15,7 @@ import WishlistPage from './pages/WishlistPage';
 import Cart from './pages/Cart';
 import Notification from './components/Notification';
 import bodyBg from './img/body-bg.png';
+import GameModesPage from './pages/GameModesPage';
 import './App.css';
 
 // Protected route component
@@ -97,6 +98,7 @@ function App() {
                 </ProtectedRoute>
               } 
             />
+            <Route path="/game-modes" element={<GameModesPage />} />
           </Routes>
         </Router>
       </CartProvider>

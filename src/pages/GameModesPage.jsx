@@ -26,25 +26,25 @@ const GameModesPage = () => {
       id: 1,
       title: 'Single Mode',
       description: 'Normal game mode with two options',
-      image: '/img/game-modes/single-mode.jpg'
+      image: '/img/single-mode.jpg'
     },
     {
       id: 2,
       title: 'Tournament Mode',
       description: '8 players facing off in elimination',
-      image: '/img/game-modes/tournament-mode.jpg'
+      image: '/img/tournament-mode.jpg'
     },
     {
       id: 3,
       title: 'Team Battle',
       description: 'Team up with your friends',
-      image: '/img/game-modes/team-battle.jpg'
+      image: '/img/team-battle.jpg'
     },
     {
       id: 4,
       title: 'Fashion Showdown',
       description: 'Among 6, one wins based on fashion',
-      image: '/img/game-modes/fashion-showdown.jpg'
+      image: '/img/fashion-showdown.jpg'
     }
   ];
 
@@ -91,7 +91,7 @@ const GameModesPage = () => {
 
         {/* Main Content */}
         <div className="main-content">
-          {/* Tabs and Filter */}
+          {/* Tabs */}
           <div className="content-header">
             <div className="tabs">
               <button 
@@ -119,6 +119,10 @@ const GameModesPage = () => {
                 Footwear
               </button>
             </div>
+          </div>
+
+          {/* Game Mode Cards */}
+          <div className="game-modes-grid">
             <div className="filter">
               <select>
                 <option>Category ▼</option>
@@ -127,10 +131,6 @@ const GameModesPage = () => {
                 <option>Popular</option>
               </select>
             </div>
-          </div>
-
-          {/* Game Mode Cards */}
-          <div className="game-modes-grid">
             {gameModes.map(mode => (
               <div key={mode.id} className="game-mode-card">
                 <div className="card-image">

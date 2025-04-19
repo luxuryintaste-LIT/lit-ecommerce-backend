@@ -3,10 +3,13 @@ import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import '../styles/Navbar.css';
 import logoImage from '../img/logo.png';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useCart();
+  const location = useLocation();
+  const isStoreActive = location.pathname === '/game-modes' || location.pathname === '/store';
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

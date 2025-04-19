@@ -10,7 +10,8 @@
 
 .game-modes-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  background: url('../img/body-bg.png') no-repeat center center fixed;
+  background-size: cover;
   color: white;
   font-family: 'Poppins', sans-serif;
 }

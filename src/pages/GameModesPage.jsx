@@ -26,25 +26,25 @@ const GameModesPage = () => {
       id: 1,
       title: 'Single Mode',
       description: 'Normal game mode with two options',
-      image: '/path-to-image-1.jpg'
+      image: '/img/game-modes/single-mode.jpg'
     },
     {
       id: 2,
       title: 'Tournament Mode',
       description: '8 players facing off in elimination',
-      image: '/path-to-image-2.jpg'
+      image: '/img/game-modes/tournament-mode.jpg'
     },
     {
       id: 3,
       title: 'Team Battle',
       description: 'Team up with your friends',
-      image: '/path-to-image-3.jpg'
+      image: '/img/game-modes/team-battle.jpg'
     },
     {
       id: 4,
       title: 'Fashion Showdown',
       description: 'Among 6, one wins based on fashion',
-      image: '/path-to-image-4.jpg'
+      image: '/img/game-modes/fashion-showdown.jpg'
     }
   ];
 

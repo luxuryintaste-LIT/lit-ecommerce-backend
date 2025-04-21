@@ -215,19 +215,20 @@
 .game-mode-card h3 {
   color: var(--primary-purple);
   margin-bottom: 10px;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  text-align: left;
 }
 
 .game-mode-card p {
   color: white;
-  font-size: 0.9rem;
+  font-size: 0.rem;
   margin-bottom: 15px;
+  text-align: left;
 }
 
 .play-now-btn {
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
   border: none;
   border-radius: 8px;
   background: radial-gradient(309.68% 308.36% at 53.98% 55.95%, rgba(0, 0, 0, 0.80) 0%, rgba(147, 51, 234, 0.40) 50%);

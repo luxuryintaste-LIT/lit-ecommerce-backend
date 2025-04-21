@@ -235,6 +235,7 @@
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .play-now-btn:hover {

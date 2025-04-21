@@ -147,6 +147,7 @@ const GameModesPage = () => {
                     <h3>{mode.title}</h3>
                     <p>{mode.description}</p>
                   </div>
+                  <button className="play-now-btn">Play Now</button>
                 </div>
               ))}
             </div>

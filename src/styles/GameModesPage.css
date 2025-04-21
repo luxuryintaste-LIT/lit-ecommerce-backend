@@ -215,7 +215,7 @@
 
 .game-mode-card h3 {
   color: var(--primary-purple);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-size: 1rem;
   text-align: left;
 }
@@ -223,7 +223,7 @@
 .game-mode-card p {
   color: white;
   font-size: 0.9rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-align: left;
 }
 

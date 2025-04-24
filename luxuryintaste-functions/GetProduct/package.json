@@ -1,9 +1,0 @@
-{
-    "name": "get-product",
-    "version": "1.0.0",
-    "description": "Function to get product details",
-    "dependencies": {
-      "@azure/cosmos": "^3.17.3",
-      "@azure/storage-blob": "^12.13.0"
-    }
-  }

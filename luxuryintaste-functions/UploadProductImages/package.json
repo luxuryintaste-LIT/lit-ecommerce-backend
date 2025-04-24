@@ -1,0 +1,9 @@
+{
+    "name": "upload-product-images",
+    "version": "1.0.0",
+    "description": "Function to upload product images",
+    "dependencies": {
+      "@azure/storage-blob": "^12.13.0",
+      "uuid": "^9.0.1"
+    }
+  }

@@ -1,0 +1,9 @@
+{
+    "name": "create-product",
+    "version": "1.0.0",
+    "description": "Function to create a new product",
+    "dependencies": {
+      "@azure/cosmos": "^3.17.3",
+      "uuid": "^9.0.1"
+    }
+  }

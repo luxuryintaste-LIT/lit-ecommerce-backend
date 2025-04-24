@@ -32,6 +32,15 @@ const FileUploadBox = ({ onFileSelect, color, onFileRemove }) => {
   };
 
   const handleFiles = (files) => {
+    // Update the form data with the new files
+    setFormData(prev => ({
+      ...prev,
+      colorImages: {
+        ...prev.colorImages,
+        [color]: [...(prev.colorImages[color] || []), ...files]
+      }
+    }));
+
     // Simulate upload progress for each file
     files.forEach((file) => {
       const fileId = `${file.name}-${Date.now()}`;
@@ -254,11 +263,69 @@ const AddProductForm = ({ isOpen, onClose }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const base64String = reader.result.split(',')[1];
+        resolve(base64String);
+      };
+      reader.onerror = error => reject(error);
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Form Data:', formData);
-    onClose();
+    
+    try {
+      const productResponse = await fetch('http://localhost:7071/api/products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          brandName: formData.brandName,
+          productName: formData.productName,
+          originalPrice: formData.originalPrice,
+          currentPrice: formData.currentPrice,
+          discountPercentage: formData.discountPercentage,
+          description: formData.description,
+          colors: formData.colors,
+          sizes: formData.sizes,
+          features: formData.features
+        })
+      });
+
+      const productData = await productResponse.json();
+      const productId = productData.productId;
+
+      for (const color of formData.colors) {
+        const colorImages = formData.colorImages[color] || [];
+        if (colorImages.length > 0) {
+          const base64Images = await Promise.all(
+            colorImages.map(async (file) => ({
+              data: await convertToBase64(file)
+            }))
+          );
+
+          await fetch(`http://localhost:7071/api/products/${productId}/images`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              color: color,
+              images: base64Images
+            })
+          });
+        }
+      }
+
+      onClose();
+    } catch (error) {
+      console.error('Error submitting product:', error);
+    }
   };
 
   if (!isOpen) return null;
@@ -359,7 +426,6 @@ const AddProductForm = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          {/* Replace the existing color images section with: */}
           {formData.colors.length > 0 && (
             <div className="color-images-section">
               <h3>Product Images by Color</h3>

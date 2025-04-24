@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useWishlist } from '../context/WishlistContext';
+import { useCart } from '../context/CartContext';
 import '../styles/ProductCard.css';
 
 const ProductCard = ({ product }) => {
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { addToCart } = useCart();
   const isWishlisted = isInWishlist(product.id);
 
   const handleWishlistClick = (e) => {
@@ -14,6 +16,11 @@ const ProductCard = ({ product }) => {
     } else {
       addToWishlist(product);
     }
+  };
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    addToCart(product);
   };
 
   return (
@@ -43,7 +50,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="button-container">
           <Link to={`/product/${product.id}`} className="buy-now">Buy Now</Link>
-          <button className="add-to-cart">Add to Cart</button>
+          <button className="add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
         </div>
       </div>
     </Link>

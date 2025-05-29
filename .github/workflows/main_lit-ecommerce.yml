@@ -1,4 +1,4 @@
-name: Build and Deploy Node.js app to Azure Web App - lit-ecommerce
+name: Build and Deploy Node.js Backend to Azure App Service
 
 on:
   push:
@@ -8,29 +8,29 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.x'
+          node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build (optional)
+      - name: Install Dependencies
         run: |
-          npm run build || echo "No build step found"
+          cd backend
+          npm install
+
+      - name: Build (Optional, skip if not needed)
+        run: |
+          cd backend
+          echo "No build step needed for backend"
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: lit-ecommerce
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
-          package: .
+          package: ./backend
